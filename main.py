@@ -142,16 +142,13 @@ class MainWindow(QMainWindow):
         self.menu_bar.hide()  # Hide the menu bar initially
         
     def inject_meta_tags(self):
-        js_code = """
-        var meta1 = document.createElement('meta');
-        meta1.name = 'viewport';
-        meta1.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
-        document.getElementsByTagName('head')[0].appendChild(meta1);
-        
-        var meta2 = document.createElement('meta');
-        meta2.name = 'HandheldFriendly';
-        meta2.content = 'true';
-        document.getElementsByTagName('head')[0].appendChild(meta2);
+        js_code = """document.body.addEventListener('touchstart', function(e) {
+            if ( (e.touches.length > 1) || e.targetTouches.length > 1) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            }
+            }, {passive: false});
         """
         self.web_view.page().runJavaScript(js_code)
 
