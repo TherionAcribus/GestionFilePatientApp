@@ -19,7 +19,7 @@ default_unlockpass = "aa"
 
 
 class SSEClient(QThread):
-    print = Signal(object)
+    sse_print = Signal(object)
 
     def run(self):
         print("Connecting to SSE server...",)
@@ -35,8 +35,9 @@ class SSEClient(QThread):
                         if decoded_line.startswith('data:'):
                             json_data = decoded_line[5:].strip()
                             data = json.loads(json_data)
-                            if data['type'] == 'print_ticket':
-                                self.print.emit(data['message'])
+                            if data['type'] == 'print':
+                                print("Emitting signal with message:", data['message'])  
+                                self.sse_print.emit(data['message'])
             except RequestException as e:
                 print(f"Connection lost: {e}")
                 time.sleep(5)  # Wait for 5 seconds before attempting to reconnect
@@ -105,7 +106,7 @@ class MainWindow(QMainWindow):
 
         self.load_preferences()
         self.sse_client = SSEClient(self)
-        self.sse_client.print.connect(self.print_ticket)
+        self.sse_client.sse_print.connect(self.print_ticket)
         self.sse_client.start()
 
         self.web_view = QWebEngineView()
@@ -113,7 +114,7 @@ class MainWindow(QMainWindow):
         self.web_view.setUrl(url)
         self.setCentralWidget(self.web_view)
         
-        # Connecter le signal loadFinished pour injecter les balises <meta>
+        # Connecter le signal loadFinished pour injecter les balises <meta> (bloquer le pinch)
         self.web_view.loadFinished.connect(self.inject_meta_tags)
 
         # Fullscreen mode
@@ -159,8 +160,8 @@ class MainWindow(QMainWindow):
         print("Message:", message)
         try:
             print_functions.print_ticket(message)
-        except:
-            print("escpos.exceptions.USBNotFoundError")
+        except Exception as e:
+            print(f"Erreur lors de l'impression: {e}")
 
     def load_preferences(self):
         settings = QSettings()
