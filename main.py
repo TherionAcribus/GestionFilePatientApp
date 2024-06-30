@@ -15,12 +15,6 @@ import os
 
 default_unlockpass = "aa"
 
-class TouchEventFilter(QObject):
-    def eventFilter(self, obj, event):
-        if event.type() in [QEvent.TouchBegin, QEvent.TouchUpdate, QEvent.TouchEnd]:
-            return True  # Ignore touch events
-        return super().eventFilter(obj, event)
-
 
 class SSEClient(QThread):
     print = Signal(object)
@@ -117,11 +111,8 @@ class MainWindow(QMainWindow):
         self.web_view.setUrl(url)
         self.setCentralWidget(self.web_view)
         
-        # Désactiver le zoom tactile
-        # Installer le filtre d'événements pour désactiver le zoom tactile
-        self.touch_event_filter = TouchEventFilter(self)
-        self.web_view.installEventFilter(self.touch_event_filter)
-
+        # Connecter le signal loadFinished pour injecter les balises <meta>
+        self.web_view.loadFinished.connect(self.inject_meta_tags)
 
         # Fullscreen mode
         self.showFullScreen()
@@ -149,6 +140,20 @@ class MainWindow(QMainWindow):
         self.config_menu.addAction(self.fullscreen_action)
         
         self.menu_bar.hide()  # Hide the menu bar initially
+        
+    def inject_meta_tags(self):
+        js_code = """
+        var meta1 = document.createElement('meta');
+        meta1.name = 'viewport';
+        meta1.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+        document.getElementsByTagName('head')[0].appendChild(meta1);
+        
+        var meta2 = document.createElement('meta');
+        meta2.name = 'HandheldFriendly';
+        meta2.content = 'true';
+        document.getElementsByTagName('head')[0].appendChild(meta2);
+        """
+        self.web_view.page().runJavaScript(js_code)
 
     def print_ticket(self, message):
         print("Message:", message)
