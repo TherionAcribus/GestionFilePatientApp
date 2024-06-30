@@ -2,7 +2,8 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QMenu, QVBoxLayout, QW
                                 QLineEdit, QPushButton, QDialog, QLabel, QFormLayout, 
                                 QMenuBar, QMessageBox, QHBoxLayout)
 from PySide6.QtWebEngineWidgets import QWebEngineView
-from PySide6.QtCore import Qt, QSettings, QThread, Signal
+from PySide6.QtWebEngineCore import QWebEngineSettings
+from PySide6.QtCore import Qt, QSettings, QThread, Signal, QObject, QEvent
 from PySide6.QtGui import QAction
 from requests.exceptions import RequestException
 import requests
@@ -13,6 +14,12 @@ import os
 
 
 default_unlockpass = "aa"
+
+class TouchEventFilter(QObject):
+    def eventFilter(self, obj, event):
+        if event.type() in [QEvent.TouchBegin, QEvent.TouchUpdate, QEvent.TouchEnd]:
+            return True  # Ignore touch events
+        return super().eventFilter(obj, event)
 
 
 class SSEClient(QThread):
@@ -109,6 +116,12 @@ class MainWindow(QMainWindow):
         url = self.web_url + "/patient"
         self.web_view.setUrl(url)
         self.setCentralWidget(self.web_view)
+        
+        # Désactiver le zoom tactile
+        # Installer le filtre d'événements pour désactiver le zoom tactile
+        self.touch_event_filter = TouchEventFilter(self)
+        self.web_view.installEventFilter(self.touch_event_filter)
+
 
         # Fullscreen mode
         self.showFullScreen()
