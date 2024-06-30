@@ -12,6 +12,8 @@ import time
 import sys
 import os
 
+import print_functions
+
 
 default_unlockpass = "aa"
 
@@ -142,6 +144,7 @@ class MainWindow(QMainWindow):
         self.menu_bar.hide()  # Hide the menu bar initially
         
     def inject_meta_tags(self):
+        """ Permet de bloquer le pinch sur la page web, mais CTRL+Scrolling """
         js_code = """document.body.addEventListener('touchstart', function(e) {
             if ( (e.touches.length > 1) || e.targetTouches.length > 1) {
             e.preventDefault();
@@ -154,6 +157,10 @@ class MainWindow(QMainWindow):
 
     def print_ticket(self, message):
         print("Message:", message)
+        try:
+            print_functions.print_ticket(message)
+        except:
+            print("escpos.exceptions.USBNotFoundError")
 
     def load_preferences(self):
         settings = QSettings()
