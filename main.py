@@ -19,9 +19,11 @@ class SSEClient(QThread):
     print = Signal(object)
 
     def run(self):
+        print("Connecting to SSE server...",)
         while True:
             try:
-                response = requests.get('http://127.0.0.1:5000/events/update_patient_app', stream=True)
+                web_url =  self.parent().web_url
+                response = requests.get(f'{web_url}/events/update_patient_app', stream=True)
                 client = response.iter_lines()
                 for line in client:
                     if line:
@@ -99,7 +101,7 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.load_preferences()
-        self.sse_client = SSEClient()
+        self.sse_client = SSEClient(self)
         self.sse_client.print.connect(self.print_ticket)
         self.sse_client.start()
 
