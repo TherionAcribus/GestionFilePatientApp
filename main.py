@@ -117,15 +117,7 @@ class MainWindow(QMainWindow):
         #self.sse_client = SSEClient(self)
         #self.sse_client.sse_print.connect(self.print_ticket)
         #self.sse_client.start()
-        self.start_socket_io_client(self.web_url)
-        
-    def start_socket_io_client(self, url):
-        print(f"Starting Socket.IO client with URL: {url}")
-        self.socket_io_client = WebSocketClient(url)
-        self.socket_io_client.signal_print.connect(self.print_ticket)
-        #self.socket_io_client.new_notification.connect(self.show_notification)
-        #self.socket_io_client.my_patient.connect(self.update_my_patient)
-        self.socket_io_client.start()              
+        self.start_socket_io_client(self.web_url)    
 
 
         self.web_view = QWebEngineView()
@@ -174,6 +166,14 @@ class MainWindow(QMainWindow):
             }, {passive: false});
         """
         self.web_view.page().runJavaScript(js_code)
+        
+    def start_socket_io_client(self, url):
+        print(f"Starting Socket.IO client with URL: {url}")
+        self.socket_io_client = WebSocketClient(url)
+        self.socket_io_client.signal_print.connect(self.print_ticket)
+        #self.socket_io_client.new_notification.connect(self.show_notification)
+        #self.socket_io_client.my_patient.connect(self.update_my_patient)
+        self.socket_io_client.start()    
 
     def print_ticket(self, message):
         print("Message:", message)
