@@ -9,5 +9,6 @@ except USBNotFoundError:
 
 
 def print_ticket(data):
+    print("Emitting signal with message:", data)
     p.text(data)
     p.cut()

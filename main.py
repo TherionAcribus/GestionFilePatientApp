@@ -13,7 +13,7 @@ import sys
 import os
 
 import print_functions
-
+from websocket_client import WebSocketClient
 
 default_unlockpass = "aa"
 
@@ -22,26 +22,35 @@ class SSEClient(QThread):
     sse_print = Signal(object)
 
     def run(self):
-        print("Connecting to SSE server...",)
+        print("Connecting to SSE server...")
         while True:
             try:
-                web_url =  self.parent().web_url
-                response = requests.get(f'{web_url}/events/update_patient_app', stream=True)
-                client = response.iter_lines()
-                for line in client:
-                    if line:
-                        print("LINE", line)
-                        decoded_line = line.decode('utf-8')
-                        if decoded_line.startswith('data:'):
-                            json_data = decoded_line[5:].strip()
-                            data = json.loads(json_data)
-                            if data['type'] == 'print':
-                                print("Emitting signal with message:", data['message'])  
-                                self.sse_print.emit(data['message'])
+                web_url = self.parent().web_url
+                # Using 'with' to ensure the connection is properly managed
+                with requests.get(f'{web_url}/events/update_patient_app', stream=True) as response:
+                    client = response.iter_lines()
+                    for line in client:
+                        if line:
+                            print("LINE", line)
+                            decoded_line = line.decode('utf-8')
+                            if decoded_line.startswith('data:'):
+                                json_data = decoded_line[5:].strip()
+                                data = json.loads(json_data)
+                                if data['type'] == 'print':
+                                    print("Emitting signal with message:", data['message'])
+                                    self.sse_print.emit(data['message'])
             except RequestException as e:
                 print(f"Connection lost: {e}")
                 time.sleep(5)  # Wait for 5 seconds before attempting to reconnect
                 print("Attempting to reconnect...")
+
+            except json.JSONDecodeError as e:
+                print(f"Error decoding JSON: {e}")
+                time.sleep(5)  # Wait for 5 seconds before attempting to reconnect
+
+            except Exception as e:
+                print(f"Unexpected error: {e}")
+                time.sleep(5)  # Wait for 5 seconds before attempting to reconnect
 
 def resource_path(relative_path):
     """ Obtenez le chemin d'accès absolu aux ressources pour le mode PyInstaller. """
@@ -105,9 +114,19 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.load_preferences()
-        self.sse_client = SSEClient(self)
-        self.sse_client.sse_print.connect(self.print_ticket)
-        self.sse_client.start()
+        #self.sse_client = SSEClient(self)
+        #self.sse_client.sse_print.connect(self.print_ticket)
+        #self.sse_client.start()
+        self.start_socket_io_client(self.web_url)
+        
+    def start_socket_io_client(self, url):
+        print(f"Starting Socket.IO client with URL: {url}")
+        self.socket_io_client = WebSocketClient(url)
+        self.socket_io_client.signal_print.connect(self.print_ticket)
+        #self.socket_io_client.new_notification.connect(self.show_notification)
+        #self.socket_io_client.my_patient.connect(self.update_my_patient)
+        self.socket_io_client.start()              
+
 
         self.web_view = QWebEngineView()
         url = self.web_url + "/patient"
