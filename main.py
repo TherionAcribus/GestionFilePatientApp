@@ -75,6 +75,13 @@ class PreferencesDialog(QDialog):
 
         self.web_url_input = QLineEdit(self)
         form_layout.addRow("URL de la page web:", self.web_url_input)
+        
+        self.username_input = QLineEdit(self)
+        form_layout.addRow("Nom d'utilisateur:", self.username_input)
+
+        self.password_input = QLineEdit(self)
+        self.password_input.setEchoMode(QLineEdit.Password)
+        form_layout.addRow("Mot de passe:", self.password_input)
 
         self.idVendor_input = QLineEdit(self)
         form_layout.addRow("Imprimante - idVendor:", self.idVendor_input)
@@ -98,6 +105,8 @@ class PreferencesDialog(QDialog):
         settings = QSettings()
         self.web_url_input.setText(settings.value("web_url", "http://localhost:5000"))
         self.secret_input.setText(settings.value("unlockpass", default_unlockpass))
+        self.username_input.setText(settings.value("username", "admin"))
+        self.password_input.setText(settings.value("password", "admin"))
         self.idVendor_input.setText(settings.value("idVendor", ""))
         self.idProduct_input.setText(settings.value("idProduct", ""))
         self.printer_model_input.setText(settings.value("printer", ""))
@@ -108,23 +117,26 @@ class PreferencesDialog(QDialog):
         settings = QSettings()
         url = self.web_url_input.text()
         secret = self.secret_input.text()
+        username = self.username_input.text()
+        password = self.password_input.text()
         idVendor = self.idVendor_input.text()
         idProduct = self.idProduct_input.text()
         printer = self.printer_model_input.text()
-
-        settings.setValue("unlockpass", secret)
-        settings.setValue("idVendor", idVendor)
-        settings.setValue("idProduct", idProduct)
-        settings.setValue("printer", printer)
-
+        
         if not url:
             QMessageBox.warning(self, "Erreur", "L'URL ne peut pas être vide")
             return
         if not secret:
             QMessageBox.warning(self, "Erreur", "Le mot de passe ne peut pas être vide")
             return
-
-        settings.setValue("web_url", url)
+        
+        settings.setValue("web_url", url)        
+        settings.setValue("username", username)
+        settings.setValue("password", password)
+        settings.setValue("unlockpass", secret)
+        settings.setValue("idVendor", idVendor)
+        settings.setValue("idProduct", idProduct)
+        settings.setValue("printer", printer)
 
         self.accept()
 
@@ -148,6 +160,9 @@ class MainWindow(QMainWindow):
         url = self.web_url + "/patient"
         self.web_view.setUrl(url)
         self.setCentralWidget(self.web_view)
+        
+        # Connect to the URL changed signal. On recherche la page login pour la remplir
+        self.web_view.urlChanged.connect(self.on_url_changed)
 
         # Connecter le signal loadFinished pour injecter les balises <meta> (bloquer le pinch)
         self.web_view.loadFinished.connect(self.inject_meta_tags)
@@ -207,12 +222,64 @@ class MainWindow(QMainWindow):
             self.printer(message)
         except Exception as e:
             print(f"Erreur lors de l'impression: {e}")
+            
+    def on_url_changed(self, url):
+        # Check if 'login' appears in the URL
+        print("URL changed:", url.toString())
+        if "login" in url.toString():
+            self.inject_login_script()            
+
+    def inject_login_script(self):
+        print("Injection de code JS")
+        print(self.username, self.password)
+        # Inject JavaScript to fill and submit the login form automatically
+        script = f"""
+        document.addEventListener('DOMContentLoaded', function() {{
+        console.log("Injecting login script after DOM is fully loaded");
+        var usernameInput = document.querySelector('input[name="username"]');
+        var passwordInput = document.querySelector('input[name="password"]');
+        var rememberCheckbox = document.querySelector('input[name="remember"]');
+        
+        if (usernameInput) {{
+            console.log("Found username input");
+            usernameInput.value = "{self.username}";
+        }} else {{
+            console.log("Username input not found");
+        }}
+
+        if (passwordInput) {{
+            console.log("Found password input");
+            passwordInput.value = "{self.password}";
+        }} else {{
+            console.log("Password input not found");
+        }}
+
+        if (rememberCheckbox) {{
+            console.log("Found remember me checkbox");
+            rememberCheckbox.checked = true;
+        }} else {{
+            console.log("Remember me checkbox not found");
+        }}
+
+        var form = usernameInput ? usernameInput.closest('form') : null;
+        if (form) {{
+            console.log("Found form, submitting");
+            form.submit();
+        }} else {{
+            console.log("Form not found");
+        }}
+    }});
+    """
+        self.web_view.page().runJavaScript(script)
+
 
     def load_preferences(self):
         """ Chargement des préférences"""
         settings = QSettings()
         self.web_url = settings.value("web_url", "http://localhost:5000")
         self.unlockpass = settings.value("unlockpass", default_unlockpass)
+        self.username = settings.value("username", "admin")
+        self.password = settings.value("password", "admin")
         self.idVendor = settings.value("idVendor", "")
         self.idProduct = settings.value("idProduct", "")
         self.printer_model = settings.value("printer", "")
