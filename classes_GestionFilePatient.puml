@@ -1,0 +1,43 @@
+@startuml classes_GestionFilePatient
+set namespaceSeparator none
+class "MainWindow" as main.MainWindow {
+  config_menu
+  fullscreen_action
+  idProduct
+  idVendor
+  menu_bar
+  preferences_action
+  preferences_dialog
+  printer : Printer
+  printer_model
+  socket_io_client : WebSocketClient
+  typed_sequence : str
+  unlockpass
+  web_url
+  web_view
+  enter_fullscreen()
+  inject_meta_tags()
+  keyPressEvent(event)
+  load_preferences()
+  open_preferences()
+  print_ticket(message)
+  start_socket_io_client(url)
+}
+class "PreferencesDialog" as main.PreferencesDialog {
+  idProduct_input
+  idVendor_input
+  main_layout
+  printer_model_input
+  save_button
+  secret_input
+  web_url_input
+  get_secret_sequence()
+  load_preferences()
+  save_preferences()
+}
+class "SSEClient" as main.SSEClient {
+  sse_print
+  run()
+}
+main.PreferencesDialog --* main.MainWindow : preferences_dialog
+@enduml

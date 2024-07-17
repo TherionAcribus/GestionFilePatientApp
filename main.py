@@ -1,22 +1,21 @@
-from PySide6.QtWidgets import (QApplication, QMainWindow, QMenu, QVBoxLayout, QWidget, 
-                                QLineEdit, QPushButton, QDialog, QLabel, QFormLayout, 
-                                QMenuBar, QMessageBox, QHBoxLayout)
-from PySide6.QtWebEngineWidgets import QWebEngineView
-from PySide6.QtWebEngineCore import QWebEngineSettings
-from PySide6.QtCore import Qt, QSettings, QThread, Signal, QObject, QEvent
-from PySide6.QtGui import QAction
-from requests.exceptions import RequestException
-import requests
 import json
 import time
 import sys
 import os
+import requests
+from PySide6.QtWidgets import (QApplication, QMainWindow, QMenu, QVBoxLayout,
+                                QLineEdit, QPushButton, QDialog, QFormLayout,
+                                QMenuBar, QMessageBox)
+from PySide6.QtWebEngineWidgets import QWebEngineView
+from PySide6.QtCore import Qt, QSettings, QThread, Signal
+from PySide6.QtGui import QAction
+from requests.exceptions import RequestException
 
-import print_functions
+
+from print_functions import Printer
 from websocket_client import WebSocketClient
 
 default_unlockpass = "aa"
-
 
 class SSEClient(QThread):
     sse_print = Signal(object)
@@ -77,6 +76,15 @@ class PreferencesDialog(QDialog):
         self.web_url_input = QLineEdit(self)
         form_layout.addRow("URL de la page web:", self.web_url_input)
 
+        self.idVendor_input = QLineEdit(self)
+        form_layout.addRow("Imprimante - idVendor:", self.idVendor_input)
+
+        self.idProduct_input = QLineEdit(self)
+        form_layout.addRow("Imprimante - idProduct:", self.idProduct_input)
+
+        self.printer_model_input = QLineEdit(self)
+        form_layout.addRow("Imprimante - Modèle:", self.printer_model_input)
+
         self.save_button = QPushButton("Enregistrer", self)
         self.save_button.clicked.connect(self.save_preferences)
 
@@ -84,16 +92,30 @@ class PreferencesDialog(QDialog):
         self.main_layout.addWidget(self.save_button)
 
         self.setLayout(self.main_layout)
-    
+
     def load_preferences(self):
+        """ chargement des préférences"""
         settings = QSettings()
         self.web_url_input.setText(settings.value("web_url", "http://localhost:5000"))
         self.secret_input.setText(settings.value("unlockpass", default_unlockpass))
+        self.idVendor_input.setText(settings.value("idVendor", ""))
+        self.idProduct_input.setText(settings.value("idProduct", ""))
+        self.printer_model_input.setText(settings.value("printer", ""))
+
 
     def save_preferences(self):
+        """ sauvegarde des préférences"""
         settings = QSettings()
         url = self.web_url_input.text()
         secret = self.secret_input.text()
+        idVendor = self.idVendor_input.text()
+        idProduct = self.idProduct_input.text()
+        printer = self.printer_model_input.text()
+
+        settings.setValue("unlockpass", secret)
+        settings.setValue("idVendor", idVendor)
+        settings.setValue("idProduct", idProduct)
+        settings.setValue("printer", printer)
 
         if not url:
             QMessageBox.warning(self, "Erreur", "L'URL ne peut pas être vide")
@@ -101,9 +123,9 @@ class PreferencesDialog(QDialog):
         if not secret:
             QMessageBox.warning(self, "Erreur", "Le mot de passe ne peut pas être vide")
             return
-        
+
         settings.setValue("web_url", url)
-        settings.setValue("unlockpass", secret)
+
         self.accept()
 
     def get_secret_sequence(self):
@@ -114,17 +136,19 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.load_preferences()
+
         #self.sse_client = SSEClient(self)
         #self.sse_client.sse_print.connect(self.print_ticket)
         #self.sse_client.start()
-        self.start_socket_io_client(self.web_url)    
+        self.start_socket_io_client(self.web_url)  
 
+        self.printer = Printer(self.idVendor, self.idProduct, self.printer_model)
 
         self.web_view = QWebEngineView()
         url = self.web_url + "/patient"
         self.web_view.setUrl(url)
         self.setCentralWidget(self.web_view)
-        
+
         # Connecter le signal loadFinished pour injecter les balises <meta> (bloquer le pinch)
         self.web_view.loadFinished.connect(self.inject_meta_tags)
 
@@ -133,11 +157,11 @@ class MainWindow(QMainWindow):
 
         # Set up shortcut to unlock configuration menu
         self.typed_sequence = ""
-        
+
         # Create Preferences Dialog
         self.preferences_dialog = PreferencesDialog(self)
         self.preferences_dialog.load_preferences()
-        
+
         # Create Menu
         self.menu_bar = QMenuBar(self)
         self.setMenuBar(self.menu_bar)
@@ -152,9 +176,9 @@ class MainWindow(QMainWindow):
         self.fullscreen_action = QAction("Plein Écran", self)
         self.fullscreen_action.triggered.connect(self.enter_fullscreen)
         self.config_menu.addAction(self.fullscreen_action)
-        
+
         self.menu_bar.hide()  # Hide the menu bar initially
-        
+
     def inject_meta_tags(self):
         """ Permet de bloquer le pinch sur la page web, mais CTRL+Scrolling """
         js_code = """document.body.addEventListener('touchstart', function(e) {
@@ -168,6 +192,7 @@ class MainWindow(QMainWindow):
         self.web_view.page().runJavaScript(js_code)
         
     def start_socket_io_client(self, url):
+        """ démarrage de socket.io client """
         print(f"Starting Socket.IO client with URL: {url}")
         self.socket_io_client = WebSocketClient(url)
         self.socket_io_client.signal_print.connect(self.print_ticket)
@@ -176,18 +201,24 @@ class MainWindow(QMainWindow):
         self.socket_io_client.start()    
 
     def print_ticket(self, message):
+        """ Impression du ticket """
         print("Message:", message)
         try:
-            print_functions.print_ticket(message)
+            self.printer(message)
         except Exception as e:
             print(f"Erreur lors de l'impression: {e}")
 
     def load_preferences(self):
+        """ Chargement des préférences"""
         settings = QSettings()
         self.web_url = settings.value("web_url", "http://localhost:5000")
         self.unlockpass = settings.value("unlockpass", default_unlockpass)
+        self.idVendor = settings.value("idVendor", "")
+        self.idProduct = settings.value("idProduct", "")
+        self.printer_model = settings.value("printer", "")
 
     def keyPressEvent(self, event):
+        """ capture des touches du clavier pour réduire l'App """
         if event.key() == Qt.Key_Escape:
             event.ignore()  # Ignore the escape key to prevent exit from fullscreen
         
@@ -201,6 +232,7 @@ class MainWindow(QMainWindow):
         super().keyPressEvent(event)
     
     def open_preferences(self):
+        """ Ouvre la page des préférences """
         if self.preferences_dialog.exec() == QDialog.Accepted:
             new_secret = self.preferences_dialog.get_secret_sequence()
             if new_secret:
@@ -210,6 +242,7 @@ class MainWindow(QMainWindow):
                 print(f"New secret sequence set: {self.unlockpass}")
 
     def enter_fullscreen(self):
+        """ Retourner en plein écran"""
         self.menu_bar.hide()
         self.showFullScreen()
 
