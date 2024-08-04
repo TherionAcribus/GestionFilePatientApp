@@ -236,11 +236,11 @@ class MainWindow(QMainWindow):
 
     def print_ticket(self, message):
         """ Impression du ticket """
-        print("Message:", message)
-        try:
-            self.printer(message)
-        except Exception as e:
-            print(f"Erreur lors de l'impression: {e}")
+        if self.printer.print(message):
+            print("Ticket imprimé avec succès.")
+        else:
+            print("Échec de l'impression du ticket.")
+                
             
     def on_url_changed(self, url):
         # Check if 'login' appears in the URL
