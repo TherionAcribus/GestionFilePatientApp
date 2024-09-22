@@ -173,7 +173,20 @@ class MainWindow(QMainWindow):
         #self.sse_client.start()
         self.start_socket_io_client(self.web_url)  
 
-        self.printer = Printer(self.idVendor, self.idProduct, self.printer_model, self.web_url)
+        self.app_token = None
+        try:
+            self.get_app_token()
+            # si on a un token, on se considère comme connecté
+            self.connected = True
+            #self.loading_screen.update_last_line(" - OK ! Token obtenu")
+        except Exception as e:
+            print("Erreur lors de l'obtention du token :", e)
+            self.connected = False
+            #self.loading_screen.update_last_line(f"- Erreur : {e}")
+
+        self.session = requests.Session()  # Session HTTP persistante
+        self.printer = Printer(self.idVendor, self.idProduct, self.printer_model, self.web_url,self.session, self.app_token)
+
 
         self.web_view = QWebEngineView()
         url = self.web_url + "/patient"
@@ -224,6 +237,17 @@ class MainWindow(QMainWindow):
             }, {passive: false});
         """
         self.web_view.page().runJavaScript(js_code)
+
+
+    def get_app_token(self):
+        url = f'{self.web_url}/api/get_app_token'
+        data = {'app_secret': 'votre_secret_app'}
+        response = self.session.post(url, data=data)
+        if response.status_code == 200:
+            self.app_token = response.json()['token']
+            print("Token obtenu :", self.app_token)
+        else:
+            print("Échec de l'obtention du token")
         
     def start_socket_io_client(self, url):
         """ démarrage de socket.io client """
