@@ -50,16 +50,66 @@ class Printer(object):
             self.send_printer_error(f"Erreur lors de l'impression : {e}")
             return False
 
+    def print(self, data):
+        if self.p is None:
+            print("Erreur : L'imprimante n'est pas initialisée correctement.")
+            self.send_printer_error("Imprimante non initialisée correctement.")
+            return False
+
+        try:
+            print("Émission du signal avec le message :", data)
+            self.p.text(data)
+            self.p.cut()
+            return True
+        except Exception as e:
+            print(f"Erreur lors de l'impression : {e}")
+            self.send_printer_error(f"Erreur lors de l'impression : {e}")
+            return False
+
+
     def send_printer_error(self, error_message):
         def send_request():
+            with self.token_lock:
+                token = self.app_token
+
+            if token is None:
+                print("Pas de token disponible, impossible d'envoyer l'erreur au serveur.")
+                return
+
             try:
-                url = f"{self.web_url}/admin/printer/status"
-                payload = {'error': True, 'message': error_message}
-                response = requests.post(url, json=payload)
-                response.raise_for_status()
-                print(f"Erreur signalée au serveur : {error_message}")
+                url = f"{self.web_url}/printer/error"
+                payload = {'error': error_message}
+                headers = {'Authorization': f'Bearer {token}'}  # Ou incluez le token selon vos besoins
+                response = self.session.post(url, json=payload, headers=headers)
+                if response.status_code == 401:
+                    # Token expiré ou invalide, essayez de le renouveler
+                    print("Token expiré ou invalide, tentative de renouvellement...")
+                    self.get_app_token()
+                    with self.token_lock:
+                        token = self.app_token
+                    if token:
+                        headers['Authorization'] = f'Bearer {token}'
+                        response = self.session.post(url, json=payload, headers=headers)
+                        response.raise_for_status()
+                        print(f"Erreur signalée au serveur après renouvellement du token : {error_message}")
+                    else:
+                        print("Impossible de renouveler le token.")
+                else:
+                    response.raise_for_status()
+                    print(f"Erreur signalée au serveur : {error_message}")
             except requests.exceptions.RequestException as e:
                 print(f"Échec de l'envoi du message d'erreur au serveur : {e}")
 
         thread = threading.Thread(target=send_request)
         thread.start()
+
+
+    def get_app_token(self):
+        url = f'{self.web_url}/api/get_app_token'
+        data = {'app_secret': 'votre_secret_app'}
+        response = self.session.post(url, data=data)
+        if response.status_code == 200:
+            self.app_token = response.json()['token']
+            print("Token obtenu :", self.app_token)
+        else:
+            print("Échec de l'obtention du token")
