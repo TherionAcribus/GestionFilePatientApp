@@ -53,7 +53,7 @@ class Printer(object):
     def send_printer_error(self, error_message):
         def send_request():
             try:
-                url = f"{self.web_url}/printer/error"
+                url = f"{self.web_url}/admin/printer/status"
                 payload = {'error': True, 'message': error_message}
                 response = requests.post(url, json=payload)
                 response.raise_for_status()
