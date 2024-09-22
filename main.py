@@ -173,7 +173,7 @@ class MainWindow(QMainWindow):
         #self.sse_client.start()
         self.start_socket_io_client(self.web_url)  
 
-        self.printer = Printer(self.idVendor, self.idProduct, self.printer_model)
+        self.printer = Printer(self.idVendor, self.idProduct, self.printer_model, self.web_url)
 
         self.web_view = QWebEngineView()
         url = self.web_url + "/patient"
@@ -187,7 +187,7 @@ class MainWindow(QMainWindow):
         self.web_view.loadFinished.connect(self.inject_meta_tags)
 
         # Fullscreen mode
-        self.showFullScreen()
+        #self.showFullScreen()  TEMP
 
         # Set up shortcut to unlock configuration menu
         self.typed_sequence = ""
@@ -211,7 +211,7 @@ class MainWindow(QMainWindow):
         self.fullscreen_action.triggered.connect(self.enter_fullscreen)
         self.config_menu.addAction(self.fullscreen_action)
 
-        self.menu_bar.hide()  # Hide the menu bar initially
+        #self.menu_bar.hide()  # Hide the menu bar initially   TMP
 
     def inject_meta_tags(self):
         """ Permet de bloquer le pinch sur la page web, mais CTRL+Scrolling """
