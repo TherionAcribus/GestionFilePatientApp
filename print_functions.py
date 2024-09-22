@@ -26,19 +26,20 @@ class Printer:
 
         try:
             self.p = Usb(self.idVendor, self.idProduct, profile=printer_model)
+            self.send_printer_status(False, "Imprimante USB initialisée avec succès.")
         except USBNotFoundError:
             print("Avertissement : Imprimante USB non trouvée. Assurez-vous que l'imprimante est connectée.")
             self.p = None
-            self.send_printer_error("Imprimante USB non trouvée.")
+            self.send_printer_status(True, "Imprimante USB non trouvée.")
         except Exception as e:
             print(f"Erreur lors de l'initialisation : {e}")
             self.p = None
-            self.send_printer_error(f"Erreur lors de l'initialisation : {e}")
+            self.send_printer_status(f"Erreur lors de l'initialisation : {e}")
 
     def print(self, data):
         if self.p is None:
             print("Erreur : L'imprimante n'est pas initialisée correctement.")
-            self.send_printer_error("Imprimante non initialisée correctement.")
+            self.send_printer_status(True, "Imprimante non initialisée correctement.")
             return False
 
         try:
@@ -48,12 +49,12 @@ class Printer:
             return True
         except Exception as e:
             print(f"Erreur lors de l'impression : {e}")
-            self.send_printer_error(f"Erreur lors de l'impression : {e}")
+            self.send_printer_status(True, f"Erreur lors de l'impression : {e}")
             return False
         
-    def send_printer_error(self, error_message):
+    def send_printer_status(self, error, error_message):
         url = f'{self.web_url}/api/printer/status'
-        data = {'error': True, 'message': error_message}     
+        data = {'error': error, 'message': error_message}
         headers = {
             'X-App-Token': self.app_token,
             'Content-Type': 'application/json'  # Ajoutez l'en-tête Content-Type pour le JSON
