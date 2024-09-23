@@ -23,7 +23,7 @@ class Printer:
         self.session = session
         self.web_url = web_url
         self.app_token = app_token
-        self.p = None  # Initialiser self.p à None
+        self.p = None
         self.initialize_printer()
     
     def initialize_printer(self):
@@ -39,15 +39,12 @@ class Printer:
             print(f"Erreur lors de l'initialisation : {e}")
             self.p = None
             self.send_printer_status(True, f"Erreur lors de l'initialisation : {e}")
-    
+
     def print(self, data):
         if self.p is None:
-            print("Imprimante non initialisée. Tentative de réinitialisation...")
-            self.initialize_printer()
-            if self.p is None:
-                print("Erreur : L'imprimante n'est pas initialisée correctement.")
-                self.send_printer_status(True, "Imprimante non initialisée correctement.")
-                return False
+            print("Erreur : L'imprimante n'est pas initialisée correctement.")
+            self.send_printer_status(True, "Imprimante non initialisée correctement.")
+            return False
 
         try:
             print("Émission du signal avec le message :", data)
@@ -56,28 +53,18 @@ class Printer:
             return True
         except Exception as e:
             print(f"Erreur lors de l'impression : {e}")
-            # Tenter de réinitialiser la connexion
-            self.p = None
-            print("Tentative de réinitialisation de l'imprimante...")
-            self.initialize_printer()
-            if self.p is not None:
-                try:
-                    print("Nouvelle tentative d'impression...")
-                    self.p.text(data)
-                    self.p.cut()
-                    return True
-                except Exception as e:
-                    print(f"Erreur lors de la nouvelle tentative d'impression : {e}")
             self.send_printer_status(True, f"Erreur lors de l'impression : {e}")
             return False
-            
+        
     def send_printer_status(self, error, error_message):
         url = f'{self.web_url}/api/printer/status'
         data = {'error': error, 'message': error_message}
         headers = {
             'X-App-Token': self.app_token,
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json'  # Ajoutez l'en-tête Content-Type pour le JSON
         }
+        
         # Envoyer les données au format JSON
         self.printer_thread = RequestThread(url, self.session, method='POST', json=data, headers=headers)
+        #self.printer_thread.result.connect(self.handle_user_result)
         self.printer_thread.start()
