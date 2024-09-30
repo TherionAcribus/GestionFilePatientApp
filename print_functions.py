@@ -24,25 +24,30 @@ class Printer:
         self.web_url = web_url
         self.app_token = app_token
         self.p = None
+        self.error = None
         self.initialize_printer()
     
     def initialize_printer(self):
         try:
             self.p = Usb(self.idVendor, self.idProduct, profile=self.printer_model)
             self.send_printer_status(False, "Imprimante USB initialisée avec succès.")
+            self.error = False
             print("Imprimante initialisée avec succès.")
         except USBNotFoundError:
             print("Avertissement : Imprimante USB non trouvée. Assurez-vous que l'imprimante est connectée.")
             self.p = None
+            self.error = True
             self.send_printer_status(True, "Imprimante USB non trouvée.")
         except Exception as e:
             print(f"Erreur lors de l'initialisation : {e}")
             self.p = None
+            self.error = True
             self.send_printer_status(True, f"Erreur lors de l'initialisation : {e}")
 
     def print(self, data):
         if self.p is None:
             print("Erreur : L'imprimante n'est pas initialisée correctement.")
+            self.error = True
             self.send_printer_status(True, "Imprimante non initialisée correctement.")
             return False
 
@@ -50,6 +55,9 @@ class Printer:
             print("Émission du signal avec le message :", data)
             self.p.text(data)
             self.p.cut()
+            if self.error:
+                self.error = False
+                self.send_printer_status(False, "Impression réussie.")
             return True
         except Exception as e:
             print(f"Erreur lors de l'impression : {e}")
