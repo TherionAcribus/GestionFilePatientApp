@@ -141,7 +141,7 @@ class PreferencesDialog(QDialog):
         if not url:
             QMessageBox.warning(self, "Erreur", "L'URL ne peut pas être vide")
             return
-        if not secret:
+        if not secret and use_password:
             QMessageBox.warning(self, "Erreur", "Le mot de passe ne peut pas être vide")
             return
         
