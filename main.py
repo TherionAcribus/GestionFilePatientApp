@@ -6,11 +6,11 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QMenu, QVBoxLayout,
                                 QMenuBar, QMessageBox, QCheckBox, QLabel)
 from PySide6.QtWebEngineWidgets import QWebEngineView 
 from PySide6.QtWebEngineCore import QWebEnginePage
-from PySide6.QtCore import Qt, QSettings, QThread, Signal, QObject, Slot
+from PySide6.QtCore import Qt, QSettings
 from PySide6.QtGui import QAction
 from PySide6.QtWebChannel import QWebChannel
 
-from print_functions import Printer
+from print_functions import Printer, Bridge
 from websocket_client import WebSocketClient
 
 
@@ -30,19 +30,6 @@ class CustomWebEnginePage(QWebEnginePage):
         # Afficher le message de la console JavaScript dans la console Python
         print(f"JS Console ({level}): {message} (Source: {sourceID}, Line: {lineNumber})")
         
-
-class Bridge(QObject):
-    def __init__(self, printer):
-        super().__init__()
-        self.printer = printer
-
-    @Slot(str)
-    def print_ticket(self, message):
-        print(f"Received message to print: {message}")
-        if self.printer:
-            self.printer.print(message)
-        else:
-            print("Printer not available")
 
 
 class PreferencesDialog(QDialog):
