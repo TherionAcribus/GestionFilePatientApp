@@ -1,54 +1,18 @@
-import json
-import time
 import sys
 import os
 import requests
 from PySide6.QtWidgets import (QApplication, QMainWindow, QMenu, QVBoxLayout,
                                 QLineEdit, QPushButton, QDialog, QFormLayout,
                                 QMenuBar, QMessageBox, QCheckBox, QLabel)
-from PySide6.QtWebEngineWidgets import QWebEngineView
-from PySide6.QtCore import Qt, QSettings, QThread, Signal
+from PySide6.QtWebEngineWidgets import QWebEngineView 
+from PySide6.QtWebEngineCore import QWebEnginePage
+from PySide6.QtCore import Qt, QSettings, QThread, Signal, QObject, Slot
 from PySide6.QtGui import QAction
-from requests.exceptions import RequestException
-
+from PySide6.QtWebChannel import QWebChannel
 
 from print_functions import Printer
 from websocket_client import WebSocketClient
 
-
-class SSEClient(QThread):
-    sse_print = Signal(object)
-
-    def run(self):
-        print("Connecting to SSE server...")
-        while True:
-            try:
-                web_url = self.parent().web_url
-                # Using 'with' to ensure the connection is properly managed
-                with requests.get(f'{web_url}/events/update_patient_app', stream=True) as response:
-                    client = response.iter_lines()
-                    for line in client:
-                        if line:
-                            print("LINE", line)
-                            decoded_line = line.decode('utf-8')
-                            if decoded_line.startswith('data:'):
-                                json_data = decoded_line[5:].strip()
-                                data = json.loads(json_data)
-                                if data['type'] == 'print':
-                                    print("Emitting signal with message:", data['message'])
-                                    self.sse_print.emit(data['message'])
-            except RequestException as e:
-                print(f"Connection lost: {e}")
-                time.sleep(5)  # Wait for 5 seconds before attempting to reconnect
-                print("Attempting to reconnect...")
-
-            except json.JSONDecodeError as e:
-                print(f"Error decoding JSON: {e}")
-                time.sleep(5)  # Wait for 5 seconds before attempting to reconnect
-
-            except Exception as e:
-                print(f"Unexpected error: {e}")
-                time.sleep(5)  # Wait for 5 seconds before attempting to reconnect
 
 def resource_path(relative_path):
     """ Obtenez le chemin d'accès absolu aux ressources pour le mode PyInstaller. """
@@ -59,6 +23,26 @@ def resource_path(relative_path):
         base_path = os.path.abspath(".")
 
     return os.path.join(base_path, relative_path)
+
+
+class CustomWebEnginePage(QWebEnginePage):
+    def javaScriptConsoleMessage(self, level, message, lineNumber, sourceID):
+        # Afficher le message de la console JavaScript dans la console Python
+        print(f"JS Console ({level}): {message} (Source: {sourceID}, Line: {lineNumber})")
+        
+
+class Bridge(QObject):
+    def __init__(self, printer):
+        super().__init__()
+        self.printer = printer
+
+    @Slot(str)
+    def print_ticket(self, message):
+        print(f"Received message to print: {message}")
+        if self.printer:
+            self.printer.print(message)
+        else:
+            print("Printer not available")
 
 
 class PreferencesDialog(QDialog):
@@ -168,9 +152,6 @@ class MainWindow(QMainWindow):
 
         self.load_preferences()
 
-        #self.sse_client = SSEClient(self)
-        #self.sse_client.sse_print.connect(self.print_ticket)
-        #self.sse_client.start()
         self.start_socket_io_client(self.web_url)  
 
         self.app_token = None
@@ -185,13 +166,24 @@ class MainWindow(QMainWindow):
             #self.loading_screen.update_last_line(f"- Erreur : {e}")
 
         self.session = requests.Session()  # Session HTTP persistante
+        
         self.printer = Printer(self.idVendor, self.idProduct, self.printer_model, self.web_url,self.session, self.app_token)
-
-
+        # Créez le bridge et passez l'objet imprimante
+        self.bridge = Bridge(self.printer)
+        
         self.web_view = QWebEngineView()
+        self.page = CustomWebEnginePage()
+        self.web_view.setPage(self.page)
+        
+        # Configurez le WebChannel
+        self.channel = QWebChannel()
+        self.channel.registerObject('bridge', self.bridge)        
+
+        self.web_view.page().setWebChannel(self.channel)
+
         url = self.web_url + "/patient"
         self.web_view.setUrl(url)
-        self.setCentralWidget(self.web_view)
+        self.setCentralWidget(self.web_view)        
         
         # Connect to the URL changed signal. On recherche la page login pour la remplir
         self.web_view.urlChanged.connect(self.on_url_changed)
@@ -200,7 +192,7 @@ class MainWindow(QMainWindow):
         self.web_view.loadFinished.connect(self.inject_meta_tags)
 
         # Fullscreen mode
-        #self.showFullScreen()  TEMP
+        self.showFullScreen()
 
         # Set up shortcut to unlock configuration menu
         self.typed_sequence = ""
@@ -224,7 +216,7 @@ class MainWindow(QMainWindow):
         self.fullscreen_action.triggered.connect(self.enter_fullscreen)
         self.config_menu.addAction(self.fullscreen_action)
 
-        #self.menu_bar.hide()  # Hide the menu bar initially   TMP
+        self.menu_bar.hide()  # Hide the menu bar initially 
 
     def inject_meta_tags(self):
         """ Permet de bloquer le pinch sur la page web, mais CTRL+Scrolling """
@@ -237,6 +229,10 @@ class MainWindow(QMainWindow):
             }, {passive: false});
         """
         self.web_view.page().runJavaScript(js_code)
+        
+            
+    def handle_console_message(self, level, message, line_number, source_id):
+            print(f"JavaScript console ({level}): {message} (line {line_number}, source {source_id})")
 
 
     def get_app_token(self):
