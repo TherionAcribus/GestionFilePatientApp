@@ -40,6 +40,7 @@ class Printer:
         self.app_token = app_token
         self.p = None
         self.error = None
+        self.encoding = 'utf-8'
         self.initialize_printer()
     
     def initialize_printer(self):
