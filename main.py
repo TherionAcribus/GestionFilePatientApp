@@ -38,9 +38,9 @@ class PreferencesDialog(QDialog):
         self.setWindowTitle("Préférences")
 
         self.main_layout = QVBoxLayout(self)
-        
+
         form_layout = QFormLayout()
-        
+
         self.use_password_checkbox = QCheckBox("Utiliser un mot de passe pour débloquer le plein écran", self)
         self.use_password_checkbox.stateChanged.connect(self.toggle_password_field)
         form_layout.addRow(self.use_password_checkbox)
@@ -67,6 +67,10 @@ class PreferencesDialog(QDialog):
 
         self.printer_model_input = QLineEdit(self)
         form_layout.addRow("Imprimante - Modèle:", self.printer_model_input)
+
+        # Ajout du switch pour activer/désactiver le WebSocket
+        self.websocket_checkbox = QCheckBox("Activer le WebSocket", self)
+        form_layout.addRow(self.websocket_checkbox)
 
         self.save_button = QPushButton("Enregistrer", self)
         self.save_button.clicked.connect(self.save_preferences)
@@ -95,6 +99,8 @@ class PreferencesDialog(QDialog):
         self.idVendor_input.setText(settings.value("idVendor", ""))
         self.idProduct_input.setText(settings.value("idProduct", ""))
         self.printer_model_input.setText(settings.value("printer", ""))
+        websocket_enabled = settings.value("websocket_enabled", True, type=bool)
+        self.websocket_checkbox.setChecked(websocket_enabled)        
 
 
     def save_preferences(self):
@@ -108,7 +114,8 @@ class PreferencesDialog(QDialog):
         idVendor = self.idVendor_input.text()
         idProduct = self.idProduct_input.text()
         printer = self.printer_model_input.text()
-        
+        websocket_enabled = self.websocket_checkbox.isChecked()
+
         if not url:
             QMessageBox.warning(self, "Erreur", "L'URL ne peut pas être vide")
             return
@@ -124,11 +131,14 @@ class PreferencesDialog(QDialog):
         settings.setValue("idVendor", idVendor)
         settings.setValue("idProduct", idProduct)
         settings.setValue("printer", printer)
+        settings.setValue("websocket_enabled", websocket_enabled)
 
         self.accept()
         
         # rechargement des préférences pour être appliquées immédiatement
         self.parent().load_preferences()
+        # Redémarrage de la connexion WebSocket en fonction de la nouvelle préférence
+        self.parent().update_socket_io_connection()
 
     def get_secret_sequence(self):
         return self.secret_input.text()
@@ -139,7 +149,8 @@ class MainWindow(QMainWindow):
 
         self.load_preferences()
 
-        self.start_socket_io_client(self.web_url)  
+        # Mettre à jour la connexion WebSocket
+        self.update_socket_io_connection()
 
         self.app_token = None
         try:
@@ -157,11 +168,11 @@ class MainWindow(QMainWindow):
         self.printer = Printer(self.idVendor, self.idProduct, self.printer_model, self.web_url,self.session, self.app_token)
         # Créez le bridge et passez l'objet imprimante
         self.bridge = Bridge(self.printer)
-        
+
         self.web_view = QWebEngineView()
         self.page = CustomWebEnginePage()
         self.web_view.setPage(self.page)
-        
+
         # Configurez le WebChannel
         self.channel = QWebChannel()
         self.channel.registerObject('bridge', self.bridge)        
@@ -171,7 +182,7 @@ class MainWindow(QMainWindow):
         url = self.web_url + "/patient"
         self.web_view.setUrl(url)
         self.setCentralWidget(self.web_view)        
-        
+
         # Connect to the URL changed signal. On recherche la page login pour la remplir
         self.web_view.urlChanged.connect(self.on_url_changed)
 
@@ -233,13 +244,26 @@ class MainWindow(QMainWindow):
             print("Échec de l'obtention du token")
         
     def start_socket_io_client(self, url):
-        """ démarrage de socket.io client """
+        """Démarrage de socket.io client"""
         print(f"Starting Socket.IO client with URL: {url}")
         self.socket_io_client = WebSocketClient(url)
         self.socket_io_client.signal_print.connect(self.print_ticket)
-        #self.socket_io_client.new_notification.connect(self.show_notification)
-        #self.socket_io_client.my_patient.connect(self.update_my_patient)
-        self.socket_io_client.start()    
+        self.socket_io_client.start()
+
+    def stop_socket_io_client(self):
+        """Arrêt de socket.io client"""
+        if hasattr(self, 'socket_io_client'):
+            print("Arrêt du client Socket.IO")
+            self.socket_io_client.stop()
+            # La méthode stop s'occupe maintenant de tout le nettoyage nécessaire
+            print("Client Socket.IO arrêté avec succès")
+
+    def update_socket_io_connection(self):
+        """Démarre ou arrête le client SocketIO en fonction des préférences."""
+        if self.websocket_enabled:
+            self.start_socket_io_client(self.web_url)
+        else:
+            self.stop_socket_io_client()  
 
     def print_ticket(self, message):
         """ Impression du ticket """
@@ -310,6 +334,8 @@ class MainWindow(QMainWindow):
         self.idVendor = settings.value("idVendor", "")
         self.idProduct = settings.value("idProduct", "")
         self.printer_model = settings.value("printer", "")
+        self.websocket_enabled = settings.value("websocket_enabled", True, type=bool)
+
 
     def keyPressEvent(self, event):
         """ capture des touches du clavier pour réduire l'App """
