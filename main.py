@@ -7,9 +7,11 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QMenu, QVBoxLayout,
                                 QMenuBar, QMessageBox, QCheckBox, QLabel)
 from PySide6.QtWebEngineWidgets import QWebEngineView 
 from PySide6.QtWebEngineCore import QWebEnginePage
-from PySide6.QtCore import Qt, QSettings
+from PySide6.QtCore import Qt, QSettings, Signal, QTimer, QEvent
 from PySide6.QtGui import QAction
 from PySide6.QtWebChannel import QWebChannel
+from datetime import datetime
+import logging
 
 from print_functions import Printer, Bridge
 from websocket_client import WebSocketClient
@@ -27,6 +29,15 @@ def resource_path(relative_path):
 
 
 class CustomWebEnginePage(QWebEnginePage):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        # Configuration des logs
+        logging.basicConfig(
+            filename='touch_events.log',
+            level=logging.INFO,
+            format='%(asctime)s - %(message)s'
+        )
+
     def javaScriptConsoleMessage(self, level, message, lineNumber, sourceID):
         # Afficher le message de la console JavaScript dans la console Python
         print(f"JS Console ({level}): {message} (Source: {sourceID}, Line: {lineNumber})")
@@ -41,13 +52,108 @@ class CustomWebEnginePage(QWebEnginePage):
         
 
 class CustomWebEngineView(QWebEngineView):
+    touch_event_detected = Signal()  # Signal pour les événements tactiles
+    touch_test_failed = Signal()     # Signal pour les échecs de test tactile
+    
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setContextMenuPolicy(Qt.NoContextMenu)  # Désactive le menu contextuel
-    
+        
+        # Variables de suivi tactile
+        self.last_touch_time = datetime.now()
+        self.consecutive_no_touch = 0
+        self.touch_check_interval = 60  # secondes
+        
+        # Timer pour la surveillance tactile
+        self.touch_timer = QTimer(self)
+        self.touch_timer.timeout.connect(self.check_touch_status)
+        self.touch_timer.start(self.touch_check_interval * 1000)
+        
+        # Compteur d'événements tactiles
+        self.touch_count = 0
+        self.last_touch_positions = []
+        
     def contextMenuEvent(self, event):
         # Ignorer l'événement de menu contextuel
         event.ignore()
+    
+    def event(self, event):
+        # Surveiller les événements tactiles
+        if event.type() in [QEvent.TouchBegin, QEvent.TouchUpdate, QEvent.TouchEnd]:
+            self.handle_touch_event(event)
+        return super().event(event)
+    
+    def handle_touch_event(self, event):
+        """Gérer et analyser les événements tactiles"""
+        self.last_touch_time = datetime.now()
+        self.touch_event_detected.emit()
+        self.consecutive_no_touch = 0
+        self.touch_count += 1
+        
+        # Enregistrer la position du touch pour analyse
+        if event.type() == QEvent.TouchBegin and hasattr(event, 'touchPoints'):
+            pos = event.touchPoints()[0].pos()
+            self.last_touch_positions.append((pos.x(), pos.y()))
+            if len(self.last_touch_positions) > 10:
+                self.last_touch_positions.pop(0)
+        
+        # Log pour diagnostic
+        logging.info(f"Événement tactile détecté - Type: {event.type()} - Count: {self.touch_count}")
+    
+    def check_touch_status(self):
+        """Vérifier l'état des événements tactiles"""
+        time_since_last_touch = (datetime.now() - self.last_touch_time).total_seconds()
+        
+        if time_since_last_touch > self.touch_check_interval:
+            self.consecutive_no_touch += 1
+            logging.warning(f"Pas d'événement tactile depuis {time_since_last_touch:.1f} secondes")
+            
+            if self.consecutive_no_touch >= 3:  # Trois intervalles sans touch
+                self.run_touch_diagnostic()
+        else:
+            self.consecutive_no_touch = 0
+    
+    def run_touch_diagnostic(self):
+        """Exécuter un diagnostic du système tactile"""
+        logging.warning("Démarrage du diagnostic tactile")
+        
+        js_diagnostic = """
+        (function checkTouchSupport() {
+            let diagnosticResult = {
+                touchPoints: navigator.maxTouchPoints,
+                touchEnabled: 'ontouchstart' in window,
+                pointerEnabled: Boolean(window.PointerEvent),
+                lastTouchEvent: window.lastTouchEventTime || 'None'
+            };
+            
+            // Tester la création d'événements tactiles
+            try {
+                let testTouch = new TouchEvent('touchstart', {
+                    bubbles: true,
+                    touches: [{
+                        identifier: 0,
+                        target: document.body,
+                        clientX: 0,
+                        clientY: 0
+                    }]
+                });
+                diagnosticResult.canCreateEvents = true;
+            } catch(e) {
+                diagnosticResult.canCreateEvents = false;
+                diagnosticResult.error = e.message;
+            }
+            
+            return diagnosticResult;
+        })();
+        """
+        
+        def handle_diagnostic(result):
+            logging.info(f"Résultat diagnostic : {result}")
+            if not result.get('touchEnabled', False) or not result.get('canCreateEvents', False):
+                self.touch_test_failed.emit()
+                logging.error("Diagnostic tactile échoué - Émission signal d'échec")
+        
+        self.page().runJavaScript(js_diagnostic, handle_diagnostic)
 
 
 class PreferencesDialog(QDialog):
@@ -206,6 +312,9 @@ class MainWindow(QMainWindow):
 
         # Connecter le signal loadFinished pour injecter les balises <meta> (bloquer le pinch)
         self.web_view.loadFinished.connect(self.inject_meta_tags)
+
+        # Connecter le signal d'échec tactile
+        self.web_view.touch_test_failed.connect(self.handle_touch_failure)
 
         # Fullscreen mode
         self.showFullScreen()
@@ -402,6 +511,12 @@ class MainWindow(QMainWindow):
         """ Retourner en plein écran"""
         self.menu_bar.hide()
         self.showFullScreen()
+
+    def handle_touch_failure(self):
+        # Gérer l'échec du test tactile
+        print("Problème tactile détecté!")
+        # Ajouter votre logique de gestion ici
+
 
 if __name__ == "__main__":
     app = QApplication([])
