@@ -3,7 +3,7 @@ import base64
 from escpos.printer import Usb
 from escpos.exceptions import USBNotFoundError
 from request_handler import RequestThread
-from PySide6.QtCore import QObject, Slot
+from PySide6.QtCore import QObject, Slot, QObject, QTimer, Qt, QEvent, Signal
 
 try:
     p = Usb(0x04b8, 0x0202, profile="TM-T88II")
@@ -17,6 +17,9 @@ def print_ticket(data):
     p.cut()
 
 class Bridge(QObject):
+    """ Au départ uniquement pour l'imprimante, mais maintenant gère le reload de la page"""
+    reload_requested = Signal()
+
     def __init__(self, printer):
         super().__init__()
         self.printer = printer
@@ -29,6 +32,12 @@ class Bridge(QObject):
             self.printer.print(message)
         else:
             print("Printer not available")
+
+    @Slot()
+    def request_reload(self):
+        """Demande un reload complet depuis JavaScript"""
+        print("Reload requested from JavaScript")
+        self.reload_requested.emit()
 
 class Printer:
     def __init__(self, idVendor, idProduct, printer_model, web_url, session, app_token):

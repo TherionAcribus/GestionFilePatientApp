@@ -290,6 +290,8 @@ class MainWindow(QMainWindow):
         # Créez le bridge et passez l'objet imprimante
         self.bridge = Bridge(self.printer)
 
+        self.bridge.reload_requested.connect(self.web_view.perform_complete_reload)
+
         self.web_view = CustomWebEngineView()
         self.page = CustomWebEnginePage()
         self.web_view.setPage(self.page)
@@ -309,6 +311,9 @@ class MainWindow(QMainWindow):
 
         # Connecter le signal loadFinished pour injecter les balises <meta> (bloquer le pinch)
         self.web_view.loadFinished.connect(self.inject_meta_tags)
+
+        # Injection du JavaScript après chargement pour permettre rechargement du navigateur à chaque patient
+        self.web_view.loadFinished.connect(self.inject_refresh_code)
 
         # Connecter le signal d'échec tactile
         self.web_view.touch_test_failed.connect(self.handle_touch_failure)
@@ -351,6 +356,57 @@ class MainWindow(QMainWindow):
             }, {passive: false});
         """
         self.web_view.page().runJavaScript(js_code)
+
+
+def inject_refresh_code(self, ok):
+        if ok:
+            js_code = """
+            // Modifier la fonction goToCancelPatient existante
+            const originalGoToCancelPatient = window.goToCancelPatient;
+            window.goToCancelPatient = function() {
+                // Demander un reload complet via le bridge
+                if (typeof bridge !== 'undefined') {
+                    bridge.request_reload();
+                }
+                originalGoToCancelPatient();
+            };
+            
+            // Modifier le comportement du bouton cancel
+            const cancelBtn = document.getElementById('cancel_btn');
+            if (cancelBtn) {
+                const originalClick = cancelBtn.onclick;
+                cancelBtn.onclick = function(e) {
+                    // Demander un reload complet via le bridge
+                    if (typeof bridge !== 'undefined') {
+                        bridge.request_reload();
+                    }
+                    if (originalClick) {
+                        originalClick.call(this, e);
+                    }
+                };
+            }
+            
+            // Surveiller les changements du timer
+            const timerGauge = document.getElementById('timer_gauge');
+            if (timerGauge) {
+                const observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        if (mutation.type === 'attributes' && 
+                            mutation.attributeName === 'style' &&
+                            timerGauge.style.width === '0%') {
+                            if (typeof bridge !== 'undefined') {
+                                bridge.request_reload();
+                            }
+                        }
+                    });
+                });
+                
+                observer.observe(timerGauge, {
+                    attributes: true
+                });
+            }
+            """
+            self.web_view.page().runJavaScript(js_code, 0)
         
             
     def handle_console_message(self, level, message, line_number, source_id):
