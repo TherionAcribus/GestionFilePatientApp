@@ -1,5 +1,6 @@
-import sys
 import os
+os.environ["QT_QPA_PLATFORM"] = "xcb"  # forcage de l'utilisation de X11 au lieu de Wayland. Wayland peut provoquer des gels de l'App si instabilité de la connexion avec l'écran.
+import sys
 import requests
 from PySide6.QtWidgets import (QApplication, QMainWindow, QMenu, QVBoxLayout,
                                 QLineEdit, QPushButton, QDialog, QFormLayout,
