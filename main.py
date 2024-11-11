@@ -30,7 +30,24 @@ class CustomWebEnginePage(QWebEnginePage):
     def javaScriptConsoleMessage(self, level, message, lineNumber, sourceID):
         # Afficher le message de la console JavaScript dans la console Python
         print(f"JS Console ({level}): {message} (Source: {sourceID}, Line: {lineNumber})")
+    
+    def acceptNavigationRequest(self, url, type, isMainFrame):
+        # Empêcher la navigation par clic droit -> "Ouvrir dans un nouvel onglet"
+        return super().acceptNavigationRequest(url, type, isMainFrame)
+    
+    def createWindow(self, windowType):
+        # Empêcher l'ouverture de nouvelles fenêtres
+        return None
         
+
+class CustomWebEngineView(QWebEngineView):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setContextMenuPolicy(Qt.NoContextMenu)  # Désactive le menu contextuel
+    
+    def contextMenuEvent(self, event):
+        # Ignorer l'événement de menu contextuel
+        event.ignore()
 
 
 class PreferencesDialog(QDialog):
@@ -170,7 +187,7 @@ class MainWindow(QMainWindow):
         # Créez le bridge et passez l'objet imprimante
         self.bridge = Bridge(self.printer)
 
-        self.web_view = QWebEngineView()
+        self.web_view = CustomWebEngineView()
         self.page = CustomWebEnginePage()
         self.web_view.setPage(self.page)
 
