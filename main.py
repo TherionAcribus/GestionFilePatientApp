@@ -358,55 +358,55 @@ class MainWindow(QMainWindow):
         self.web_view.page().runJavaScript(js_code)
 
 
-def inject_refresh_code(self, ok):
-        if ok:
-            js_code = """
-            // Modifier la fonction goToCancelPatient existante
-            const originalGoToCancelPatient = window.goToCancelPatient;
-            window.goToCancelPatient = function() {
-                // Demander un reload complet via le bridge
-                if (typeof bridge !== 'undefined') {
-                    bridge.request_reload();
-                }
-                originalGoToCancelPatient();
-            };
-            
-            // Modifier le comportement du bouton cancel
-            const cancelBtn = document.getElementById('cancel_btn');
-            if (cancelBtn) {
-                const originalClick = cancelBtn.onclick;
-                cancelBtn.onclick = function(e) {
+    def inject_refresh_code(self, ok):
+            if ok:
+                js_code = """
+                // Modifier la fonction goToCancelPatient existante
+                const originalGoToCancelPatient = window.goToCancelPatient;
+                window.goToCancelPatient = function() {
                     // Demander un reload complet via le bridge
                     if (typeof bridge !== 'undefined') {
                         bridge.request_reload();
                     }
-                    if (originalClick) {
-                        originalClick.call(this, e);
-                    }
+                    originalGoToCancelPatient();
                 };
-            }
-            
-            // Surveiller les changements du timer
-            const timerGauge = document.getElementById('timer_gauge');
-            if (timerGauge) {
-                const observer = new MutationObserver(function(mutations) {
-                    mutations.forEach(function(mutation) {
-                        if (mutation.type === 'attributes' && 
-                            mutation.attributeName === 'style' &&
-                            timerGauge.style.width === '0%') {
-                            if (typeof bridge !== 'undefined') {
-                                bridge.request_reload();
-                            }
-                        }
-                    });
-                });
                 
-                observer.observe(timerGauge, {
-                    attributes: true
-                });
-            }
-            """
-            self.web_view.page().runJavaScript(js_code, 0)
+                // Modifier le comportement du bouton cancel
+                const cancelBtn = document.getElementById('cancel_btn');
+                if (cancelBtn) {
+                    const originalClick = cancelBtn.onclick;
+                    cancelBtn.onclick = function(e) {
+                        // Demander un reload complet via le bridge
+                        if (typeof bridge !== 'undefined') {
+                            bridge.request_reload();
+                        }
+                        if (originalClick) {
+                            originalClick.call(this, e);
+                        }
+                    };
+                }
+                
+                // Surveiller les changements du timer
+                const timerGauge = document.getElementById('timer_gauge');
+                if (timerGauge) {
+                    const observer = new MutationObserver(function(mutations) {
+                        mutations.forEach(function(mutation) {
+                            if (mutation.type === 'attributes' && 
+                                mutation.attributeName === 'style' &&
+                                timerGauge.style.width === '0%') {
+                                if (typeof bridge !== 'undefined') {
+                                    bridge.request_reload();
+                                }
+                            }
+                        });
+                    });
+                    
+                    observer.observe(timerGauge, {
+                        attributes: true
+                    });
+                }
+                """
+                self.web_view.page().runJavaScript(js_code, 0)
         
             
     def handle_console_message(self, level, message, line_number, source_id):
