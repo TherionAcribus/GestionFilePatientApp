@@ -1,9 +1,16 @@
 import re
 import base64
+import logging
 from escpos.printer import Usb
 from escpos.exceptions import USBNotFoundError
 from request_handler import RequestThread
 from PySide6.QtCore import QObject, Slot, QObject, QTimer, Qt, QEvent, Signal
+
+logging.basicConfig(
+    filename='app_reload.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(message)s'
+)
 
 try:
     p = Usb(0x04b8, 0x0202, profile="TM-T88II")
@@ -23,6 +30,8 @@ class Bridge(QObject):
     def __init__(self, printer):
         super().__init__()
         self.printer = printer
+        self.patients_counter = 0
+        self.patient_before_reload = 3
 
     @Slot(str)
     def print_ticket(self, message):
@@ -35,9 +44,14 @@ class Bridge(QObject):
 
     @Slot()
     def request_reload(self):
-        """Demande un reload complet depuis JavaScript"""
-        print("Reload requested from JavaScript")
-        self.reload_requested.emit()
+        """Demande un rechargement depuis JavaScript. Permet de limiter le risque de perte du tactile.
+        Un redémarrage tous les 15 patients pour l'instant"""
+        print("Rechargement demandé depuis JavaScript")
+        if self.web_view:
+            print("Exécution du rechargement")
+            self.web_view.reload()
+        else:
+            print("web_view n'est pas défini dans Bridge")
 
 class Printer:
     def __init__(self, idVendor, idProduct, printer_model, web_url, session, app_token):

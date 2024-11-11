@@ -7,7 +7,7 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QMenu, QVBoxLayout,
                                 QMenuBar, QMessageBox, QCheckBox, QLabel)
 from PySide6.QtWebEngineWidgets import QWebEngineView 
 from PySide6.QtWebEngineCore import QWebEnginePage
-from PySide6.QtCore import Qt, QSettings, Signal, QTimer, QEvent
+from PySide6.QtCore import Qt, QSettings, Signal, QTimer, QEvent, Slot
 from PySide6.QtGui import QAction
 from PySide6.QtWebChannel import QWebChannel
 from datetime import datetime
@@ -61,7 +61,7 @@ class CustomWebEngineView(QWebEngineView):
         
         self.last_touch_time = datetime.now()
         self.consecutive_no_touch = 0
-        self.touch_check_interval = 60
+        self.touch_check_interval = 10
         
         self.touch_timer = QTimer(self)
         self.touch_timer.timeout.connect(self.check_touch_status)
@@ -72,7 +72,7 @@ class CustomWebEngineView(QWebEngineView):
     
     def contextMenuEvent(self, event):
         event.ignore()
-    
+
     def event(self, event):
         if event.type() in [QEvent.TouchBegin, QEvent.TouchUpdate, QEvent.TouchEnd]:
             self.handle_touch_event(event)
@@ -93,14 +93,22 @@ class CustomWebEngineView(QWebEngineView):
         logging.info(f"Événement tactile détecté - Type: {event.type()} - Count: {self.touch_count}")
     
     def check_touch_status(self):
+        """Vérifier l'état des événements tactiles"""
         time_since_last_touch = (datetime.now() - self.last_touch_time).total_seconds()
-        
+        print("TOUCHE")
+
         if time_since_last_touch > self.touch_check_interval:
             self.consecutive_no_touch += 1
             logging.warning(f"Pas d'événement tactile depuis {time_since_last_touch:.1f} secondes")
             
-            if self.consecutive_no_touch >= 3:
-                self.run_touch_diagnostic()
+            # Réduire la sensibilité du diagnostic
+            if self.consecutive_no_touch >= 3:  # 3 périodes sans activité
+                # Vérifier si c'est une période d'inactivité normale (par exemple la nuit)
+                current_hour = datetime.now().hour
+                if 8 <= current_hour <= 20:  # Entre 8h et 20h
+                    self.run_touch_diagnostic()
+                else:
+                    logging.info("Période d'inactivité normale - Diagnostic ignoré")
         else:
             self.consecutive_no_touch = 0
     
@@ -114,24 +122,60 @@ class CustomWebEngineView(QWebEngineView):
                 touchPoints: navigator.maxTouchPoints,
                 touchEnabled: 'ontouchstart' in window,
                 pointerEnabled: Boolean(window.PointerEvent),
-                lastTouchEvent: window.lastTouchEventTime || 'None'
+                screenTouch: 'TouchEvent' in window,
+                events: []
             };
             
-            try {
-                let testTouch = new TouchEvent('touchstart', {
-                    bubbles: true,
-                    touches: [{
-                        identifier: 0,
-                        target: document.body,
-                        clientX: 0,
-                        clientY: 0
-                    }]
-                });
-                diagnosticResult.canCreateEvents = true;
-            } catch(e) {
-                diagnosticResult.canCreateEvents = false;
-                diagnosticResult.error = e.message;
+            // Vérifier les événements tactiles disponibles
+            ['touchstart', 'touchend', 'touchmove'].forEach(eventName => {
+                let testElement = document.createElement('div');
+                let eventRegistered = false;
+                
+                testElement.addEventListener(eventName, () => {
+                    eventRegistered = true;
+                }, { once: true });
+                
+                try {
+                    // Tenter de déclencher l'événement de manière simple
+                    let simpleEvent = new Event(eventName);
+                    testElement.dispatchEvent(simpleEvent);
+                    diagnosticResult.events.push({
+                        event: eventName,
+                        registered: eventRegistered,
+                        supported: true
+                    });
+                } catch(e) {
+                    diagnosticResult.events.push({
+                        event: eventName,
+                        registered: false,
+                        supported: false,
+                        error: e.message
+                    });
+                }
+            });
+            
+            // Vérifier si l'écran tactile est actif via pointer events
+            let pointerTest = {
+                touch: false,
+                pen: false,
+                mouse: false
+            };
+            
+            function handlePointer(e) {
+                pointerTest[e.pointerType] = true;
             }
+            
+            document.addEventListener('pointerdown', handlePointer, { once: true });
+            diagnosticResult.pointerTest = pointerTest;
+            
+            // Ajouter des informations sur le viewport
+            diagnosticResult.viewport = {
+                width: window.innerWidth,
+                height: window.innerHeight,
+                devicePixelRatio: window.devicePixelRatio,
+                orientation: window.screen.orientation ? 
+                    window.screen.orientation.type : 'unknown'
+            };
             
             return JSON.stringify(diagnosticResult);
         })();
@@ -144,14 +188,66 @@ class CustomWebEngineView(QWebEngineView):
                     result = json.loads(result)
                 
                 logging.info(f"Résultat diagnostic : {result}")
-                if not result.get('touchEnabled', False) or not result.get('canCreateEvents', False):
+                
+                touch_available = (
+                    result.get('touchEnabled', False) or
+                    result.get('screenTouch', False) or
+                    result.get('touchPoints', 0) > 0 or
+                    any(e.get('supported', False) for e in result.get('events', []))
+                )
+                
+                need_reload = False
+                
+                if not touch_available:
                     self.touch_test_failed.emit()
-                    logging.error("Diagnostic tactile échoué - Émission signal d'échec")
+                    logging.error("Diagnostic tactile échoué - Support tactile non détecté")
+                    need_reload = True
+                else:
+                    events_working = any(e.get('registered', False) for e in result.get('events', []))
+                    if not events_working:
+                        self.touch_test_failed.emit()
+                        logging.error("Diagnostic tactile échoué - Événements tactiles non fonctionnels")
+                        need_reload = True
+                    else:
+                        logging.info("Diagnostic tactile réussi - Système tactile opérationnel")
+                
+                if need_reload:
+                    self.schedule_reload()
+                
             except Exception as e:
                 logging.error(f"Erreur lors du traitement du diagnostic : {e}")
+                self.reload()
         
         # Utilisation correcte de runJavaScript avec PySide6
         self.page().runJavaScript(js_diagnostic, 0, callback)
+    
+    @Slot()  # Ajout du décorateur Slot
+    def schedule_reload(self):
+        """Planifier le rechargement avec notification"""
+        logging.warning("Planification du rechargement automatique")
+        js_notification = """
+        (function() {
+            let notif = document.createElement('div');
+            notif.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgba(0, 0, 0, 0.8);
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                z-index: 10000;
+                font-size: 18px;
+                text-align: center;
+            `;
+            notif.textContent = 'Rechargement de la page dans 3 secondes...';
+            document.body.appendChild(notif);
+        })();
+        """
+        self.page().runJavaScript(js_notification)
+        QTimer.singleShot(3000, self.reload)
+
 
 class PreferencesDialog(QDialog):
     def __init__(self, parent=None):
@@ -290,30 +386,27 @@ class MainWindow(QMainWindow):
         # Créez le bridge et passez l'objet imprimante
         self.bridge = Bridge(self.printer)
 
-        self.bridge.reload_requested.connect(self.web_view.perform_complete_reload)
-
         self.web_view = CustomWebEngineView()
         self.page = CustomWebEnginePage()
         self.web_view.setPage(self.page)
 
-        # Configurez le WebChannel
-        self.channel = QWebChannel()
-        self.channel.registerObject('bridge', self.bridge)        
-
-        self.web_view.page().setWebChannel(self.channel)
-
         url = self.web_url + "/patient"
         self.web_view.setUrl(url)
-        self.setCentralWidget(self.web_view)        
+        self.setCentralWidget(self.web_view)
+
+        # Assurez-vous que le bridge a une référence à web_view
+        self.bridge.web_view = self.web_view
+
+        # Configurez le WebChannel
+        self.channel = QWebChannel()
+        self.channel.registerObject('bridge', self.bridge)  
+        self.web_view.page().setWebChannel(self.channel)  
 
         # Connect to the URL changed signal. On recherche la page login pour la remplir
         self.web_view.urlChanged.connect(self.on_url_changed)
 
         # Connecter le signal loadFinished pour injecter les balises <meta> (bloquer le pinch)
         self.web_view.loadFinished.connect(self.inject_meta_tags)
-
-        # Injection du JavaScript après chargement pour permettre rechargement du navigateur à chaque patient
-        self.web_view.loadFinished.connect(self.inject_refresh_code)
 
         # Connecter le signal d'échec tactile
         self.web_view.touch_test_failed.connect(self.handle_touch_failure)
@@ -358,56 +451,6 @@ class MainWindow(QMainWindow):
         self.web_view.page().runJavaScript(js_code)
 
 
-    def inject_refresh_code(self, ok):
-            if ok:
-                js_code = """
-                // Modifier la fonction goToCancelPatient existante
-                const originalGoToCancelPatient = window.goToCancelPatient;
-                window.goToCancelPatient = function() {
-                    // Demander un reload complet via le bridge
-                    if (typeof bridge !== 'undefined') {
-                        bridge.request_reload();
-                    }
-                    originalGoToCancelPatient();
-                };
-                
-                // Modifier le comportement du bouton cancel
-                const cancelBtn = document.getElementById('cancel_btn');
-                if (cancelBtn) {
-                    const originalClick = cancelBtn.onclick;
-                    cancelBtn.onclick = function(e) {
-                        // Demander un reload complet via le bridge
-                        if (typeof bridge !== 'undefined') {
-                            bridge.request_reload();
-                        }
-                        if (originalClick) {
-                            originalClick.call(this, e);
-                        }
-                    };
-                }
-                
-                // Surveiller les changements du timer
-                const timerGauge = document.getElementById('timer_gauge');
-                if (timerGauge) {
-                    const observer = new MutationObserver(function(mutations) {
-                        mutations.forEach(function(mutation) {
-                            if (mutation.type === 'attributes' && 
-                                mutation.attributeName === 'style' &&
-                                timerGauge.style.width === '0%') {
-                                if (typeof bridge !== 'undefined') {
-                                    bridge.request_reload();
-                                }
-                            }
-                        });
-                    });
-                    
-                    observer.observe(timerGauge, {
-                        attributes: true
-                    });
-                }
-                """
-                self.web_view.page().runJavaScript(js_code, 0)
-        
             
     def handle_console_message(self, level, message, line_number, source_id):
             print(f"JavaScript console ({level}): {message} (line {line_number}, source {source_id})")

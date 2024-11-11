@@ -1,0 +1,975 @@
+2024-11-11 18:08:31,054 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 18:08:48,081 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 18:08:49,460 - JavaScript code injected
+2024-11-11 18:08:50,136 - WebSocket connection accepted with {'sid': 'B_wWVD44_93zdn_yAAAR', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 18:08:50,137 - Engine.IO connection established
+2024-11-11 18:08:50,138 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 18:08:50,142 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"Q1sJzGc4y1VGeQapAAAS"}
+2024-11-11 18:08:50,144 - Namespace /socket_app_patient is connected
+2024-11-11 18:08:51,901 - JavaScript code injected
+2024-11-11 18:09:15,156 - Received packet PING data 
+2024-11-11 18:09:15,157 - Sending packet PONG data 
+2024-11-11 18:09:40,157 - Received packet PING data 
+2024-11-11 18:09:40,158 - Sending packet PONG data 
+2024-11-11 18:10:43,245 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 18:10:45,296 - WebSocket connection accepted with {'sid': 'TXIxsAdN7etNZaYxAAAV', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 18:10:45,297 - Engine.IO connection established
+2024-11-11 18:10:45,297 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 18:10:45,300 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"babDHraVk-bol7PVAAAW"}
+2024-11-11 18:10:45,301 - Namespace /socket_app_patient is connected
+2024-11-11 18:11:10,348 - Received packet PING data 
+2024-11-11 18:11:10,348 - Sending packet PONG data 
+2024-11-11 18:11:35,350 - Received packet PING data 
+2024-11-11 18:11:35,351 - Sending packet PONG data 
+2024-11-11 18:11:51,745 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 18:11:53,156 - JavaScript code injected
+2024-11-11 18:11:53,787 - WebSocket connection accepted with {'sid': 'QHpFFxqGQvQ4kS29AAAZ', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 18:11:53,787 - Engine.IO connection established
+2024-11-11 18:11:53,788 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 18:11:53,792 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"69wIntYs0DFnbI-aAAAa"}
+2024-11-11 18:11:53,793 - Namespace /socket_app_patient is connected
+2024-11-11 18:11:55,445 - JavaScript code injected
+2024-11-11 18:12:18,784 - Received packet PING data 
+2024-11-11 18:12:18,784 - Sending packet PONG data 
+2024-11-11 18:12:43,786 - Received packet PING data 
+2024-11-11 18:12:43,787 - Sending packet PONG data 
+2024-11-11 18:13:09,004 - Received packet PING data 
+2024-11-11 18:13:09,005 - Sending packet PONG data 
+2024-11-11 18:13:34,011 - Received packet PING data 
+2024-11-11 18:13:34,012 - Sending packet PONG data 
+2024-11-11 18:13:51,772 - Pas d'événement tactile depuis 120.0 secondes
+2024-11-11 18:13:59,013 - Received packet PING data 
+2024-11-11 18:13:59,014 - Sending packet PONG data 
+2024-11-11 18:14:24,012 - Received packet PING data 
+2024-11-11 18:14:24,012 - Sending packet PONG data 
+2024-11-11 18:14:49,022 - Received packet PING data 
+2024-11-11 18:14:49,023 - Sending packet PONG data 
+2024-11-11 18:14:51,773 - Pas d'événement tactile depuis 180.0 secondes
+2024-11-11 18:15:14,033 - Received packet PING data 
+2024-11-11 18:15:14,034 - Sending packet PONG data 
+2024-11-11 18:15:39,034 - Received packet PING data 
+2024-11-11 18:15:39,035 - Sending packet PONG data 
+2024-11-11 18:15:51,773 - Pas d'événement tactile depuis 240.0 secondes
+2024-11-11 18:15:51,773 - Démarrage du diagnostic tactile
+2024-11-11 18:15:51,775 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:15:51,775 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:16:04,024 - Received packet PING data 
+2024-11-11 18:16:04,026 - Sending packet PONG data 
+2024-11-11 18:16:29,030 - Received packet PING data 
+2024-11-11 18:16:29,031 - Sending packet PONG data 
+2024-11-11 18:16:51,773 - Pas d'événement tactile depuis 300.0 secondes
+2024-11-11 18:16:51,773 - Démarrage du diagnostic tactile
+2024-11-11 18:16:51,775 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:16:51,775 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:16:54,045 - Received packet PING data 
+2024-11-11 18:16:54,047 - Sending packet PONG data 
+2024-11-11 18:17:19,052 - Received packet PING data 
+2024-11-11 18:17:19,052 - Sending packet PONG data 
+2024-11-11 18:17:44,201 - Received packet PING data 
+2024-11-11 18:17:44,201 - Sending packet PONG data 
+2024-11-11 18:17:51,776 - Pas d'événement tactile depuis 360.0 secondes
+2024-11-11 18:17:51,776 - Démarrage du diagnostic tactile
+2024-11-11 18:17:51,778 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:17:51,778 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:18:09,203 - Received packet PING data 
+2024-11-11 18:18:09,204 - Sending packet PONG data 
+2024-11-11 18:18:34,200 - Received packet PING data 
+2024-11-11 18:18:34,201 - Sending packet PONG data 
+2024-11-11 18:18:51,773 - Pas d'événement tactile depuis 420.0 secondes
+2024-11-11 18:18:51,773 - Démarrage du diagnostic tactile
+2024-11-11 18:18:51,774 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:18:51,775 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:18:59,215 - Received packet PING data 
+2024-11-11 18:18:59,215 - Sending packet PONG data 
+2024-11-11 18:19:24,231 - Received packet PING data 
+2024-11-11 18:19:24,232 - Sending packet PONG data 
+2024-11-11 18:19:49,245 - Received packet PING data 
+2024-11-11 18:19:49,246 - Sending packet PONG data 
+2024-11-11 18:19:51,773 - Pas d'événement tactile depuis 480.0 secondes
+2024-11-11 18:19:51,773 - Démarrage du diagnostic tactile
+2024-11-11 18:19:51,774 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:19:51,775 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:20:14,264 - Received packet PING data 
+2024-11-11 18:20:14,266 - Sending packet PONG data 
+2024-11-11 18:20:39,353 - Received packet PING data 
+2024-11-11 18:20:39,354 - Sending packet PONG data 
+2024-11-11 18:20:51,773 - Pas d'événement tactile depuis 540.0 secondes
+2024-11-11 18:20:51,773 - Démarrage du diagnostic tactile
+2024-11-11 18:20:51,774 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:20:51,775 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:21:04,372 - Received packet PING data 
+2024-11-11 18:21:04,373 - Sending packet PONG data 
+2024-11-11 18:21:29,375 - Received packet PING data 
+2024-11-11 18:21:29,376 - Sending packet PONG data 
+2024-11-11 18:21:51,772 - Pas d'événement tactile depuis 600.0 secondes
+2024-11-11 18:21:51,772 - Démarrage du diagnostic tactile
+2024-11-11 18:21:51,773 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:21:51,774 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:21:54,375 - Received packet PING data 
+2024-11-11 18:21:54,376 - Sending packet PONG data 
+2024-11-11 18:22:19,373 - Received packet PING data 
+2024-11-11 18:22:19,374 - Sending packet PONG data 
+2024-11-11 18:22:44,377 - Received packet PING data 
+2024-11-11 18:22:44,378 - Sending packet PONG data 
+2024-11-11 18:22:51,773 - Pas d'événement tactile depuis 660.0 secondes
+2024-11-11 18:22:51,773 - Démarrage du diagnostic tactile
+2024-11-11 18:22:51,774 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:22:51,775 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:23:09,546 - Received packet PING data 
+2024-11-11 18:23:09,546 - Sending packet PONG data 
+2024-11-11 18:23:34,546 - Received packet PING data 
+2024-11-11 18:23:34,547 - Sending packet PONG data 
+2024-11-11 18:23:51,772 - Pas d'événement tactile depuis 720.0 secondes
+2024-11-11 18:23:51,772 - Démarrage du diagnostic tactile
+2024-11-11 18:23:51,773 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:23:51,774 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:23:59,552 - Received packet PING data 
+2024-11-11 18:23:59,552 - Sending packet PONG data 
+2024-11-11 18:24:24,566 - Received packet PING data 
+2024-11-11 18:24:24,567 - Sending packet PONG data 
+2024-11-11 18:24:49,593 - Received packet PING data 
+2024-11-11 18:24:49,594 - Sending packet PONG data 
+2024-11-11 18:24:51,781 - Pas d'événement tactile depuis 780.0 secondes
+2024-11-11 18:24:51,781 - Démarrage du diagnostic tactile
+2024-11-11 18:24:51,782 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:24:51,783 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:25:14,591 - Received packet PING data 
+2024-11-11 18:25:14,592 - Sending packet PONG data 
+2024-11-11 18:25:39,589 - Received packet PING data 
+2024-11-11 18:25:39,589 - Sending packet PONG data 
+2024-11-11 18:25:51,773 - Pas d'événement tactile depuis 840.0 secondes
+2024-11-11 18:25:51,773 - Démarrage du diagnostic tactile
+2024-11-11 18:25:51,775 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:25:51,775 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:26:04,601 - Received packet PING data 
+2024-11-11 18:26:04,602 - Sending packet PONG data 
+2024-11-11 18:26:29,704 - Received packet PING data 
+2024-11-11 18:26:29,705 - Sending packet PONG data 
+2024-11-11 18:26:51,772 - Pas d'événement tactile depuis 900.0 secondes
+2024-11-11 18:26:51,772 - Démarrage du diagnostic tactile
+2024-11-11 18:26:51,773 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:26:51,773 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:26:54,714 - Received packet PING data 
+2024-11-11 18:26:54,715 - Sending packet PONG data 
+2024-11-11 18:27:19,738 - Received packet PING data 
+2024-11-11 18:27:19,738 - Sending packet PONG data 
+2024-11-11 18:27:44,727 - Received packet PING data 
+2024-11-11 18:27:44,728 - Sending packet PONG data 
+2024-11-11 18:27:51,772 - Pas d'événement tactile depuis 960.0 secondes
+2024-11-11 18:27:51,772 - Démarrage du diagnostic tactile
+2024-11-11 18:27:51,773 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:27:51,774 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:28:09,750 - Received packet PING data 
+2024-11-11 18:28:09,751 - Sending packet PONG data 
+2024-11-11 18:28:34,761 - Received packet PING data 
+2024-11-11 18:28:34,762 - Sending packet PONG data 
+2024-11-11 18:28:51,773 - Pas d'événement tactile depuis 1020.0 secondes
+2024-11-11 18:28:51,773 - Démarrage du diagnostic tactile
+2024-11-11 18:28:51,775 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:28:51,775 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:28:59,780 - Received packet PING data 
+2024-11-11 18:28:59,781 - Sending packet PONG data 
+2024-11-11 18:29:24,776 - Received packet PING data 
+2024-11-11 18:29:24,777 - Sending packet PONG data 
+2024-11-11 18:29:49,776 - Received packet PING data 
+2024-11-11 18:29:49,777 - Sending packet PONG data 
+2024-11-11 18:29:51,772 - Pas d'événement tactile depuis 1080.0 secondes
+2024-11-11 18:29:51,772 - Démarrage du diagnostic tactile
+2024-11-11 18:29:51,774 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:29:51,774 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:30:14,775 - Received packet PING data 
+2024-11-11 18:30:14,776 - Sending packet PONG data 
+2024-11-11 18:30:39,796 - Received packet PING data 
+2024-11-11 18:30:39,797 - Sending packet PONG data 
+2024-11-11 18:30:51,773 - Pas d'événement tactile depuis 1140.0 secondes
+2024-11-11 18:30:51,773 - Démarrage du diagnostic tactile
+2024-11-11 18:30:51,774 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:30:51,774 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:31:04,911 - Received packet PING data 
+2024-11-11 18:31:04,912 - Sending packet PONG data 
+2024-11-11 18:31:29,930 - Received packet PING data 
+2024-11-11 18:31:29,931 - Sending packet PONG data 
+2024-11-11 18:31:51,782 - Pas d'événement tactile depuis 1200.0 secondes
+2024-11-11 18:31:51,782 - Démarrage du diagnostic tactile
+2024-11-11 18:31:51,783 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:31:51,783 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:31:54,951 - Received packet PING data 
+2024-11-11 18:31:54,952 - Sending packet PONG data 
+2024-11-11 18:32:19,955 - Received packet PING data 
+2024-11-11 18:32:19,956 - Sending packet PONG data 
+2024-11-11 18:32:44,963 - Received packet PING data 
+2024-11-11 18:32:44,964 - Sending packet PONG data 
+2024-11-11 18:32:51,772 - Pas d'événement tactile depuis 1260.0 secondes
+2024-11-11 18:32:51,772 - Démarrage du diagnostic tactile
+2024-11-11 18:32:51,774 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:32:51,774 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:33:09,969 - Received packet PING data 
+2024-11-11 18:33:09,970 - Sending packet PONG data 
+2024-11-11 18:33:34,971 - Received packet PING data 
+2024-11-11 18:33:34,971 - Sending packet PONG data 
+2024-11-11 18:33:51,773 - Pas d'événement tactile depuis 1320.0 secondes
+2024-11-11 18:33:51,773 - Démarrage du diagnostic tactile
+2024-11-11 18:33:51,774 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:33:51,775 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:33:59,984 - Received packet PING data 
+2024-11-11 18:33:59,985 - Sending packet PONG data 
+2024-11-11 18:37:13,517 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 18:37:15,210 - JavaScript code injected
+2024-11-11 18:37:15,553 - WebSocket connection accepted with {'sid': '0dnEw3278le1-zsTAAAd', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 18:37:15,554 - Engine.IO connection established
+2024-11-11 18:37:15,555 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 18:37:15,559 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"6_evn0H0J65Qak4kAAAe"}
+2024-11-11 18:37:15,561 - Namespace /socket_app_patient is connected
+2024-11-11 18:37:15,856 - JavaScript code injected
+2024-11-11 18:37:40,607 - Received packet PING data 
+2024-11-11 18:37:40,607 - Sending packet PONG data 
+2024-11-11 18:38:05,621 - Received packet PING data 
+2024-11-11 18:38:05,622 - Sending packet PONG data 
+2024-11-11 18:38:30,623 - Received packet PING data 
+2024-11-11 18:38:30,623 - Sending packet PONG data 
+2024-11-11 18:38:41,363 - Sending packet CLOSE data None
+2024-11-11 18:38:41,364 - Engine.IO connection dropped
+2024-11-11 18:38:41,364 - Exiting write loop task
+2024-11-11 18:38:41,366 - WebSocket connection was closed, aborting
+2024-11-11 18:38:41,366 - Waiting for write loop task to end
+2024-11-11 18:38:41,367 - Exiting read loop task
+2024-11-11 18:38:42,185 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 18:38:52,674 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 18:38:54,719 - WebSocket connection accepted with {'sid': 'SiZaIbF1RLF10YqIAAAh', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 18:38:54,720 - Engine.IO connection established
+2024-11-11 18:38:54,720 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 18:38:54,724 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"1r_81_YFrk27ztsdAAAi"}
+2024-11-11 18:38:54,725 - Namespace /socket_app_patient is connected
+2024-11-11 18:39:19,720 - Received packet PING data 
+2024-11-11 18:39:19,720 - Sending packet PONG data 
+2024-11-11 18:39:30,969 - Rechargement demandé depuis JavaScript
+2024-11-11 18:39:30,969 - Exécution du rechargement
+2024-11-11 18:39:44,721 - Received packet PING data 
+2024-11-11 18:39:44,721 - Sending packet PONG data 
+2024-11-11 18:39:45,885 - Rechargement demandé depuis JavaScript
+2024-11-11 18:39:45,885 - Exécution du rechargement
+2024-11-11 18:39:58,718 - Rechargement demandé depuis JavaScript
+2024-11-11 18:39:58,718 - Exécution du rechargement
+2024-11-11 18:40:09,721 - Received packet PING data 
+2024-11-11 18:40:09,722 - Sending packet PONG data 
+2024-11-11 18:40:12,167 - Rechargement demandé depuis JavaScript
+2024-11-11 18:40:12,167 - Exécution du rechargement
+2024-11-11 18:40:34,727 - Received packet PING data 
+2024-11-11 18:40:34,728 - Sending packet PONG data 
+2024-11-11 18:40:52,694 - Pas d'événement tactile depuis 120.0 secondes
+2024-11-11 18:40:59,751 - Received packet PING data 
+2024-11-11 18:40:59,751 - Sending packet PONG data 
+2024-11-11 18:41:24,765 - Received packet PING data 
+2024-11-11 18:41:24,766 - Sending packet PONG data 
+2024-11-11 18:41:49,894 - Received packet PING data 
+2024-11-11 18:41:49,895 - Sending packet PONG data 
+2024-11-11 18:41:52,694 - Pas d'événement tactile depuis 180.0 secondes
+2024-11-11 18:42:14,892 - Received packet PING data 
+2024-11-11 18:42:14,893 - Sending packet PONG data 
+2024-11-11 18:42:39,900 - Received packet PING data 
+2024-11-11 18:42:39,901 - Sending packet PONG data 
+2024-11-11 18:42:52,694 - Pas d'événement tactile depuis 240.0 secondes
+2024-11-11 18:42:52,694 - Démarrage du diagnostic tactile
+2024-11-11 18:42:52,696 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:42:52,697 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:43:04,905 - Received packet PING data 
+2024-11-11 18:43:04,906 - Sending packet PONG data 
+2024-11-11 18:43:29,901 - Received packet PING data 
+2024-11-11 18:43:29,902 - Sending packet PONG data 
+2024-11-11 18:43:52,693 - Pas d'événement tactile depuis 300.0 secondes
+2024-11-11 18:43:52,693 - Démarrage du diagnostic tactile
+2024-11-11 18:43:52,694 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:43:52,695 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:43:55,015 - Received packet PING data 
+2024-11-11 18:43:55,015 - Sending packet PONG data 
+2024-11-11 18:44:20,028 - Received packet PING data 
+2024-11-11 18:44:20,029 - Sending packet PONG data 
+2024-11-11 18:44:45,031 - Received packet PING data 
+2024-11-11 18:44:45,033 - Sending packet PONG data 
+2024-11-11 18:44:52,693 - Pas d'événement tactile depuis 360.0 secondes
+2024-11-11 18:44:52,693 - Démarrage du diagnostic tactile
+2024-11-11 18:44:52,694 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:44:52,695 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:45:10,042 - Received packet PING data 
+2024-11-11 18:45:10,043 - Sending packet PONG data 
+2024-11-11 18:45:35,061 - Received packet PING data 
+2024-11-11 18:45:35,062 - Sending packet PONG data 
+2024-11-11 18:45:52,694 - Pas d'événement tactile depuis 420.0 secondes
+2024-11-11 18:45:52,694 - Démarrage du diagnostic tactile
+2024-11-11 18:45:52,695 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:45:52,696 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:46:00,079 - Received packet PING data 
+2024-11-11 18:46:00,080 - Sending packet PONG data 
+2024-11-11 18:46:25,088 - Received packet PING data 
+2024-11-11 18:46:25,089 - Sending packet PONG data 
+2024-11-11 18:46:50,084 - Received packet PING data 
+2024-11-11 18:46:50,085 - Sending packet PONG data 
+2024-11-11 18:46:52,701 - Pas d'événement tactile depuis 480.0 secondes
+2024-11-11 18:46:52,701 - Démarrage du diagnostic tactile
+2024-11-11 18:46:52,702 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:46:52,703 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:47:15,093 - Received packet PING data 
+2024-11-11 18:47:15,093 - Sending packet PONG data 
+2024-11-11 18:47:40,110 - Received packet PING data 
+2024-11-11 18:47:40,110 - Sending packet PONG data 
+2024-11-11 18:47:55,600 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 18:47:57,661 - WebSocket connection accepted with {'sid': 'RuvRpLPXdMgSFaVcAAAw', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 18:47:57,662 - Engine.IO connection established
+2024-11-11 18:47:57,662 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 18:47:57,667 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"POK7BVLUODhhn9FSAAAx"}
+2024-11-11 18:47:57,668 - Namespace /socket_app_patient is connected
+2024-11-11 18:48:13,049 - Rechargement demandé depuis JavaScript
+2024-11-11 18:48:22,670 - Received packet PING data 
+2024-11-11 18:48:22,671 - Sending packet PONG data 
+2024-11-11 18:48:47,745 - Received packet PING data 
+2024-11-11 18:48:47,746 - Sending packet PONG data 
+2024-11-11 18:48:55,638 - Pas d'événement tactile depuis 60.0 secondes
+2024-11-11 18:49:12,755 - Received packet PING data 
+2024-11-11 18:49:12,755 - Sending packet PONG data 
+2024-11-11 18:49:37,764 - Received packet PING data 
+2024-11-11 18:49:37,765 - Sending packet PONG data 
+2024-11-11 18:49:55,633 - Pas d'événement tactile depuis 120.0 secondes
+2024-11-11 18:50:02,770 - Received packet PING data 
+2024-11-11 18:50:02,770 - Sending packet PONG data 
+2024-11-11 18:50:27,809 - Received packet PING data 
+2024-11-11 18:50:27,809 - Sending packet PONG data 
+2024-11-11 18:50:47,368 - Rechargement demandé depuis JavaScript
+2024-11-11 18:50:52,820 - Received packet PING data 
+2024-11-11 18:50:52,821 - Sending packet PONG data 
+2024-11-11 18:50:55,632 - Pas d'événement tactile depuis 180.0 secondes
+2024-11-11 18:50:55,632 - Démarrage du diagnostic tactile
+2024-11-11 18:50:55,633 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:50:55,634 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:51:17,825 - Received packet PING data 
+2024-11-11 18:51:17,825 - Sending packet PONG data 
+2024-11-11 18:51:42,828 - Received packet PING data 
+2024-11-11 18:51:42,829 - Sending packet PONG data 
+2024-11-11 18:51:55,632 - Pas d'événement tactile depuis 240.0 secondes
+2024-11-11 18:51:55,632 - Démarrage du diagnostic tactile
+2024-11-11 18:51:55,633 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:51:55,634 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:52:07,829 - Received packet PING data 
+2024-11-11 18:52:07,830 - Sending packet PONG data 
+2024-11-11 18:52:32,825 - Received packet PING data 
+2024-11-11 18:52:32,826 - Sending packet PONG data 
+2024-11-11 18:52:51,474 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 18:52:53,528 - WebSocket connection accepted with {'sid': 'C2f45BI2NPKKmnyCAAA0', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 18:52:53,529 - Engine.IO connection established
+2024-11-11 18:52:53,529 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 18:52:53,533 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"SKme0APRo50ug4_yAAA1"}
+2024-11-11 18:52:53,534 - Namespace /socket_app_patient is connected
+2024-11-11 18:53:02,753 - Rechargement demandé depuis JavaScript
+2024-11-11 18:53:18,528 - Received packet PING data 
+2024-11-11 18:53:18,529 - Sending packet PONG data 
+2024-11-11 18:53:43,539 - Received packet PING data 
+2024-11-11 18:53:43,540 - Sending packet PONG data 
+2024-11-11 18:53:51,507 - Pas d'événement tactile depuis 60.0 secondes
+2024-11-11 18:54:08,557 - Received packet PING data 
+2024-11-11 18:54:08,558 - Sending packet PONG data 
+2024-11-11 18:54:33,566 - Received packet PING data 
+2024-11-11 18:54:33,566 - Sending packet PONG data 
+2024-11-11 18:54:51,507 - Pas d'événement tactile depuis 120.0 secondes
+2024-11-11 18:54:58,575 - Received packet PING data 
+2024-11-11 18:54:58,576 - Sending packet PONG data 
+2024-11-11 18:55:23,592 - Received packet PING data 
+2024-11-11 18:55:23,592 - Sending packet PONG data 
+2024-11-11 18:55:48,607 - Received packet PING data 
+2024-11-11 18:55:48,608 - Sending packet PONG data 
+2024-11-11 18:55:51,507 - Pas d'événement tactile depuis 180.0 secondes
+2024-11-11 18:55:51,507 - Démarrage du diagnostic tactile
+2024-11-11 18:55:51,509 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:55:51,509 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:56:15,141 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 18:56:17,403 - WebSocket connection accepted with {'sid': 'rVwiWFmwnP-XY_Y8AAA9', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 18:56:17,404 - Engine.IO connection established
+2024-11-11 18:56:17,404 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 18:56:17,410 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"PBYVe3ongV2BXlsEAAA-"}
+2024-11-11 18:56:17,411 - Namespace /socket_app_patient is connected
+2024-11-11 18:56:31,512 - Rechargement demandé depuis JavaScript
+2024-11-11 18:56:42,161 - Rechargement demandé depuis JavaScript
+2024-11-11 18:56:42,423 - Received packet PING data 
+2024-11-11 18:56:42,424 - Sending packet PONG data 
+2024-11-11 18:56:50,277 - Rechargement demandé depuis JavaScript
+2024-11-11 18:56:58,027 - Rechargement demandé depuis JavaScript
+2024-11-11 18:57:06,143 - Rechargement demandé depuis JavaScript
+2024-11-11 18:57:07,438 - Received packet PING data 
+2024-11-11 18:57:07,438 - Sending packet PONG data 
+2024-11-11 18:57:14,126 - Rechargement demandé depuis JavaScript
+2024-11-11 18:57:23,077 - Rechargement demandé depuis JavaScript
+2024-11-11 18:57:31,343 - Rechargement demandé depuis JavaScript
+2024-11-11 18:57:32,437 - Received packet PING data 
+2024-11-11 18:57:32,438 - Sending packet PONG data 
+2024-11-11 18:57:48,992 - Rechargement demandé depuis JavaScript
+2024-11-11 18:57:56,092 - Rechargement demandé depuis JavaScript
+2024-11-11 18:57:57,437 - Received packet PING data 
+2024-11-11 18:57:57,438 - Sending packet PONG data 
+2024-11-11 18:58:09,224 - Rechargement demandé depuis JavaScript
+2024-11-11 18:58:15,163 - Pas d'événement tactile depuis 120.0 secondes
+2024-11-11 18:58:18,408 - Rechargement demandé depuis JavaScript
+2024-11-11 18:58:22,444 - Received packet PING data 
+2024-11-11 18:58:22,445 - Sending packet PONG data 
+2024-11-11 18:58:26,308 - Rechargement demandé depuis JavaScript
+2024-11-11 18:58:33,957 - Rechargement demandé depuis JavaScript
+2024-11-11 18:58:44,356 - Rechargement demandé depuis JavaScript
+2024-11-11 18:58:44,356 - Exécution du rechargement
+2024-11-11 18:58:47,465 - Received packet PING data 
+2024-11-11 18:58:47,466 - Sending packet PONG data 
+2024-11-11 19:08:57,171 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 19:08:59,486 - WebSocket connection accepted with {'sid': 'ppHy619jgL6Jn_nqAABN', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 19:08:59,487 - Engine.IO connection established
+2024-11-11 19:08:59,487 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 19:08:59,498 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"tgxzsKSkwQaaPVdfAABO"}
+2024-11-11 19:08:59,500 - Namespace /socket_app_patient is connected
+2024-11-11 19:09:10,080 - Rechargement demandé depuis JavaScript
+2024-11-11 19:09:19,532 - Rechargement demandé depuis JavaScript
+2024-11-11 19:09:24,490 - Received packet PING data 
+2024-11-11 19:09:24,490 - Sending packet PONG data 
+2024-11-11 19:09:30,955 - Rechargement demandé depuis JavaScript
+2024-11-11 19:09:38,472 - Rechargement demandé depuis JavaScript
+2024-11-11 19:09:46,988 - Rechargement demandé depuis JavaScript
+2024-11-11 19:09:49,509 - Received packet PING data 
+2024-11-11 19:09:49,510 - Sending packet PONG data 
+2024-11-11 19:09:57,789 - Rechargement demandé depuis JavaScript
+2024-11-11 19:10:14,531 - Received packet PING data 
+2024-11-11 19:10:14,532 - Sending packet PONG data 
+2024-11-11 19:10:21,928 - Rechargement demandé depuis JavaScript
+2024-11-11 19:10:30,228 - Rechargement demandé depuis JavaScript
+2024-11-11 19:10:39,542 - Received packet PING data 
+2024-11-11 19:10:39,543 - Sending packet PONG data 
+2024-11-11 19:10:40,611 - Rechargement demandé depuis JavaScript
+2024-11-11 19:10:49,344 - Rechargement demandé depuis JavaScript
+2024-11-11 19:10:57,193 - Pas d'événement tactile depuis 120.0 secondes
+2024-11-11 19:11:04,556 - Received packet PING data 
+2024-11-11 19:11:04,557 - Sending packet PONG data 
+2024-11-11 19:11:14,660 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 19:11:16,708 - WebSocket connection accepted with {'sid': '9BpRSqhZnWD5BRyIAABT', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 19:11:16,709 - Engine.IO connection established
+2024-11-11 19:11:16,710 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 19:11:16,717 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"uEEJYUJyz5shKAnWAABU"}
+2024-11-11 19:11:16,719 - Namespace /socket_app_patient is connected
+2024-11-11 19:11:31,744 - Rechargement demandé depuis JavaScript
+2024-11-11 19:11:41,674 - Rechargement demandé depuis JavaScript
+2024-11-11 19:11:41,699 - Received packet PING data 
+2024-11-11 19:11:41,701 - Sending packet PONG data 
+2024-11-11 19:11:55,725 - Rechargement demandé depuis JavaScript
+2024-11-11 19:11:55,725 - Exécution du rechargement
+2024-11-11 19:12:06,704 - Received packet PING data 
+2024-11-11 19:12:06,704 - Sending packet PONG data 
+2024-11-11 19:12:13,524 - Rechargement demandé depuis JavaScript
+2024-11-11 19:12:31,699 - Received packet PING data 
+2024-11-11 19:12:31,701 - Sending packet PONG data 
+2024-11-11 19:12:56,711 - Received packet PING data 
+2024-11-11 19:12:56,712 - Sending packet PONG data 
+2024-11-11 19:13:14,678 - Pas d'événement tactile depuis 120.0 secondes
+2024-11-11 19:13:21,735 - Received packet PING data 
+2024-11-11 19:13:21,736 - Sending packet PONG data 
+2024-11-11 19:13:46,746 - Received packet PING data 
+2024-11-11 19:13:46,747 - Sending packet PONG data 
+2024-11-11 19:14:09,769 - Rechargement demandé depuis JavaScript
+2024-11-11 19:14:11,765 - Received packet PING data 
+2024-11-11 19:14:11,766 - Sending packet PONG data 
+2024-11-11 19:14:14,679 - Pas d'événement tactile depuis 180.0 secondes
+2024-11-11 19:14:19,169 - Rechargement demandé depuis JavaScript
+2024-11-11 19:14:19,169 - Exécution du rechargement
+2024-11-11 19:14:36,765 - Received packet PING data 
+2024-11-11 19:14:36,766 - Sending packet PONG data 
+2024-11-11 19:15:01,761 - Received packet PING data 
+2024-11-11 19:15:01,762 - Sending packet PONG data 
+2024-11-11 19:15:14,679 - Pas d'événement tactile depuis 240.0 secondes
+2024-11-11 19:15:14,679 - Démarrage du diagnostic tactile
+2024-11-11 19:15:14,680 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 19:15:14,681 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 19:20:13,956 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 19:20:15,996 - WebSocket connection accepted with {'sid': 'eXPjKKAkJ6BGjnlxAABZ', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 19:20:15,997 - Engine.IO connection established
+2024-11-11 19:20:15,997 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 19:20:16,001 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"nItqc7vpwmffBn5GAABa"}
+2024-11-11 19:20:16,002 - Namespace /socket_app_patient is connected
+2024-11-11 19:20:41,014 - Received packet PING data 
+2024-11-11 19:20:41,015 - Sending packet PONG data 
+2024-11-11 19:21:06,025 - Received packet PING data 
+2024-11-11 19:21:06,026 - Sending packet PONG data 
+2024-11-11 19:21:31,023 - Received packet PING data 
+2024-11-11 19:21:31,024 - Sending packet PONG data 
+2024-11-11 19:21:56,047 - Received packet PING data 
+2024-11-11 19:21:56,048 - Sending packet PONG data 
+2024-11-11 19:22:13,992 - Pas d'événement tactile depuis 120.0 secondes
+2024-11-11 19:22:21,047 - Received packet PING data 
+2024-11-11 19:22:21,047 - Sending packet PONG data 
+2024-11-11 19:22:46,045 - Received packet PING data 
+2024-11-11 19:22:46,046 - Sending packet PONG data 
+2024-11-11 19:23:11,084 - Received packet PING data 
+2024-11-11 19:23:11,085 - Sending packet PONG data 
+2024-11-11 19:23:13,992 - Pas d'événement tactile depuis 180.0 secondes
+2024-11-11 19:23:36,261 - Received packet PING data 
+2024-11-11 19:23:36,262 - Sending packet PONG data 
+2024-11-11 19:31:12,330 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 19:31:14,383 - WebSocket connection accepted with {'sid': '6MLyt3H8ZUvNRPzrAABy', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 19:31:14,384 - Engine.IO connection established
+2024-11-11 19:31:14,384 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 19:31:14,387 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"9652geJlHTommPXIAABz"}
+2024-11-11 19:31:14,388 - Namespace /socket_app_patient is connected
+2024-11-11 19:31:39,487 - Received packet PING data 
+2024-11-11 19:31:39,487 - Sending packet PONG data 
+2024-11-11 19:32:04,640 - Received packet PING data 
+2024-11-11 19:32:04,641 - Sending packet PONG data 
+2024-11-11 19:32:29,647 - Received packet PING data 
+2024-11-11 19:32:29,648 - Sending packet PONG data 
+2024-11-11 19:32:54,664 - Received packet PING data 
+2024-11-11 19:32:54,665 - Sending packet PONG data 
+2024-11-11 19:33:12,353 - Pas d'événement tactile depuis 120.0 secondes
+2024-11-11 19:33:19,684 - Received packet PING data 
+2024-11-11 19:33:19,685 - Sending packet PONG data 
+2024-11-11 19:33:44,693 - Received packet PING data 
+2024-11-11 19:33:44,694 - Sending packet PONG data 
+2024-11-11 19:34:09,712 - Received packet PING data 
+2024-11-11 19:34:09,713 - Sending packet PONG data 
+2024-11-11 19:34:12,360 - Pas d'événement tactile depuis 180.0 secondes
+2024-11-11 19:35:28,308 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 19:35:30,355 - WebSocket connection accepted with {'sid': 'a2B1wFldvDfGDD_fAAB_', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 19:35:30,355 - Engine.IO connection established
+2024-11-11 19:35:30,356 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 19:35:30,359 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"2tVUP78z76NW-Zb1AACA"}
+2024-11-11 19:35:30,360 - Namespace /socket_app_patient is connected
+2024-11-11 19:35:55,368 - Received packet PING data 
+2024-11-11 19:35:55,369 - Sending packet PONG data 
+2024-11-11 19:36:20,384 - Received packet PING data 
+2024-11-11 19:36:20,385 - Sending packet PONG data 
+2024-11-11 19:36:45,385 - Received packet PING data 
+2024-11-11 19:36:45,386 - Sending packet PONG data 
+2024-11-11 19:37:10,582 - Received packet PING data 
+2024-11-11 19:37:10,583 - Sending packet PONG data 
+2024-11-11 19:37:28,318 - Pas d'événement tactile depuis 120.0 secondes
+2024-11-11 19:37:35,579 - Received packet PING data 
+2024-11-11 19:37:35,580 - Sending packet PONG data 
+2024-11-11 19:38:00,577 - Received packet PING data 
+2024-11-11 19:38:00,578 - Sending packet PONG data 
+2024-11-11 19:38:25,586 - Received packet PING data 
+2024-11-11 19:38:25,587 - Sending packet PONG data 
+2024-11-11 19:38:28,319 - Pas d'événement tactile depuis 180.0 secondes
+2024-11-11 19:38:50,599 - Received packet PING data 
+2024-11-11 19:38:50,600 - Sending packet PONG data 
+2024-11-11 19:39:15,621 - Received packet PING data 
+2024-11-11 19:39:15,622 - Sending packet PONG data 
+2024-11-11 19:39:28,319 - Pas d'événement tactile depuis 240.0 secondes
+2024-11-11 19:39:28,319 - Démarrage du diagnostic tactile
+2024-11-11 19:39:28,321 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 19:39:28,322 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 19:39:40,639 - Received packet PING data 
+2024-11-11 19:39:40,640 - Sending packet PONG data 
+2024-11-11 19:40:05,635 - Received packet PING data 
+2024-11-11 19:40:05,636 - Sending packet PONG data 
+2024-11-11 19:40:28,318 - Pas d'événement tactile depuis 300.0 secondes
+2024-11-11 19:40:28,318 - Démarrage du diagnostic tactile
+2024-11-11 19:40:28,319 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 19:40:28,320 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 19:40:30,644 - Received packet PING data 
+2024-11-11 19:40:30,645 - Sending packet PONG data 
+2024-11-11 19:40:55,641 - Received packet PING data 
+2024-11-11 19:40:55,641 - Sending packet PONG data 
+2024-11-11 19:41:20,712 - Received packet PING data 
+2024-11-11 19:41:20,712 - Sending packet PONG data 
+2024-11-11 19:41:28,325 - Pas d'événement tactile depuis 360.0 secondes
+2024-11-11 19:41:28,325 - Démarrage du diagnostic tactile
+2024-11-11 19:41:28,326 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 19:41:28,327 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 19:41:45,903 - Received packet PING data 
+2024-11-11 19:41:45,903 - Sending packet PONG data 
+2024-11-11 19:42:04,688 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 19:42:06,755 - WebSocket connection accepted with {'sid': 'LJaAESVmcAMXg2etAACH', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 19:42:06,756 - Engine.IO connection established
+2024-11-11 19:42:06,756 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 19:42:06,769 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"MrdUpcESIyRkay-PAACI"}
+2024-11-11 19:42:06,770 - Namespace /socket_app_patient is connected
+2024-11-11 19:42:31,770 - Received packet PING data 
+2024-11-11 19:42:31,770 - Sending packet PONG data 
+2024-11-11 19:42:56,782 - Received packet PING data 
+2024-11-11 19:42:56,782 - Sending packet PONG data 
+2024-11-11 19:43:21,776 - Received packet PING data 
+2024-11-11 19:43:21,776 - Sending packet PONG data 
+2024-11-11 19:43:46,782 - Received packet PING data 
+2024-11-11 19:43:46,782 - Sending packet PONG data 
+2024-11-11 19:44:04,713 - Pas d'événement tactile depuis 120.0 secondes
+2024-11-11 19:44:11,785 - Received packet PING data 
+2024-11-11 19:44:11,785 - Sending packet PONG data 
+2024-11-11 19:44:36,787 - Received packet PING data 
+2024-11-11 19:44:36,788 - Sending packet PONG data 
+2024-11-11 19:45:01,810 - Received packet PING data 
+2024-11-11 19:45:01,811 - Sending packet PONG data 
+2024-11-11 19:45:04,713 - Pas d'événement tactile depuis 180.0 secondes
+2024-11-11 19:45:26,822 - Received packet PING data 
+2024-11-11 19:45:26,823 - Sending packet PONG data 
+2024-11-11 19:45:51,845 - Received packet PING data 
+2024-11-11 19:45:51,845 - Sending packet PONG data 
+2024-11-11 19:46:04,718 - Pas d'événement tactile depuis 240.0 secondes
+2024-11-11 19:46:04,718 - Démarrage du diagnostic tactile
+2024-11-11 19:46:04,723 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:46:04,723 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:46:22,613 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 19:46:24,669 - WebSocket connection accepted with {'sid': 'J1u2L9IrX2m8r2AsAACJ', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 19:46:24,669 - Engine.IO connection established
+2024-11-11 19:46:24,670 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 19:46:24,673 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"DhY-Fs2RXZ5MilTaAACK"}
+2024-11-11 19:46:24,674 - Namespace /socket_app_patient is connected
+2024-11-11 19:46:42,632 - Pas d'événement tactile depuis 20.0 secondes
+2024-11-11 19:46:49,682 - Received packet PING data 
+2024-11-11 19:46:49,682 - Sending packet PONG data 
+2024-11-11 19:46:52,633 - Pas d'événement tactile depuis 30.0 secondes
+2024-11-11 19:47:02,633 - Pas d'événement tactile depuis 40.0 secondes
+2024-11-11 19:47:02,633 - Démarrage du diagnostic tactile
+2024-11-11 19:47:02,635 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:47:02,635 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:47:12,633 - Pas d'événement tactile depuis 50.0 secondes
+2024-11-11 19:47:12,633 - Démarrage du diagnostic tactile
+2024-11-11 19:47:12,635 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:47:12,635 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:47:14,815 - Received packet PING data 
+2024-11-11 19:47:14,816 - Sending packet PONG data 
+2024-11-11 19:47:22,632 - Pas d'événement tactile depuis 60.0 secondes
+2024-11-11 19:47:22,632 - Démarrage du diagnostic tactile
+2024-11-11 19:47:22,633 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:47:22,634 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:47:32,632 - Pas d'événement tactile depuis 70.0 secondes
+2024-11-11 19:47:32,632 - Démarrage du diagnostic tactile
+2024-11-11 19:47:32,633 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:47:32,633 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:47:39,820 - Received packet PING data 
+2024-11-11 19:47:39,820 - Sending packet PONG data 
+2024-11-11 19:47:42,632 - Pas d'événement tactile depuis 80.0 secondes
+2024-11-11 19:47:42,632 - Démarrage du diagnostic tactile
+2024-11-11 19:47:42,633 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:47:42,633 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:47:57,247 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 19:47:59,451 - WebSocket connection accepted with {'sid': 'fY--P957nKLaUFzcAACO', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 19:47:59,452 - Engine.IO connection established
+2024-11-11 19:47:59,452 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 19:47:59,464 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"DpqN_Ox76gVwgzU7AACQ"}
+2024-11-11 19:47:59,465 - Namespace /socket_app_patient is connected
+2024-11-11 19:48:07,273 - Pas d'événement tactile depuis 10.0 secondes
+2024-11-11 19:48:17,280 - Pas d'événement tactile depuis 20.0 secondes
+2024-11-11 19:48:24,453 - Received packet PING data 
+2024-11-11 19:48:24,454 - Sending packet PONG data 
+2024-11-11 19:48:27,272 - Pas d'événement tactile depuis 30.0 secondes
+2024-11-11 19:48:27,272 - Démarrage du diagnostic tactile
+2024-11-11 19:48:27,275 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:48:27,275 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:48:37,273 - Pas d'événement tactile depuis 40.0 secondes
+2024-11-11 19:48:37,273 - Démarrage du diagnostic tactile
+2024-11-11 19:48:37,275 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:48:37,275 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:48:47,273 - Pas d'événement tactile depuis 50.0 secondes
+2024-11-11 19:48:47,273 - Démarrage du diagnostic tactile
+2024-11-11 19:48:47,274 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:48:47,275 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:48:49,455 - Received packet PING data 
+2024-11-11 19:48:49,456 - Sending packet PONG data 
+2024-11-11 19:48:57,273 - Pas d'événement tactile depuis 60.0 secondes
+2024-11-11 19:48:57,273 - Démarrage du diagnostic tactile
+2024-11-11 19:48:57,274 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:48:57,275 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:49:07,272 - Pas d'événement tactile depuis 70.0 secondes
+2024-11-11 19:49:07,272 - Démarrage du diagnostic tactile
+2024-11-11 19:49:07,274 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:49:07,274 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:49:14,466 - Received packet PING data 
+2024-11-11 19:49:14,466 - Sending packet PONG data 
+2024-11-11 19:49:17,272 - Pas d'événement tactile depuis 80.0 secondes
+2024-11-11 19:49:17,272 - Démarrage du diagnostic tactile
+2024-11-11 19:49:17,273 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:49:17,274 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:49:27,280 - Pas d'événement tactile depuis 90.0 secondes
+2024-11-11 19:49:27,281 - Démarrage du diagnostic tactile
+2024-11-11 19:49:27,282 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:49:27,282 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:49:37,273 - Pas d'événement tactile depuis 100.0 secondes
+2024-11-11 19:49:37,273 - Démarrage du diagnostic tactile
+2024-11-11 19:49:37,275 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:49:37,275 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:49:39,483 - Received packet PING data 
+2024-11-11 19:49:39,484 - Sending packet PONG data 
+2024-11-11 19:49:47,273 - Pas d'événement tactile depuis 110.0 secondes
+2024-11-11 19:49:47,274 - Démarrage du diagnostic tactile
+2024-11-11 19:49:47,275 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:49:47,275 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:49:57,273 - Pas d'événement tactile depuis 120.0 secondes
+2024-11-11 19:49:57,273 - Démarrage du diagnostic tactile
+2024-11-11 19:49:57,274 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:49:57,274 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:50:04,484 - Received packet PING data 
+2024-11-11 19:50:04,485 - Sending packet PONG data 
+2024-11-11 19:50:07,273 - Pas d'événement tactile depuis 130.0 secondes
+2024-11-11 19:50:07,273 - Démarrage du diagnostic tactile
+2024-11-11 19:50:07,274 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:50:07,275 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:50:17,273 - Pas d'événement tactile depuis 140.0 secondes
+2024-11-11 19:50:17,273 - Démarrage du diagnostic tactile
+2024-11-11 19:50:17,275 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:50:17,275 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:50:27,273 - Pas d'événement tactile depuis 150.0 secondes
+2024-11-11 19:50:27,273 - Démarrage du diagnostic tactile
+2024-11-11 19:50:27,274 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:50:27,274 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:50:29,489 - Received packet PING data 
+2024-11-11 19:50:29,489 - Sending packet PONG data 
+2024-11-11 19:50:37,284 - Pas d'événement tactile depuis 160.0 secondes
+2024-11-11 19:50:37,285 - Démarrage du diagnostic tactile
+2024-11-11 19:50:37,287 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:50:37,287 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:50:47,272 - Pas d'événement tactile depuis 170.0 secondes
+2024-11-11 19:50:47,273 - Démarrage du diagnostic tactile
+2024-11-11 19:50:47,274 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:50:47,274 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:50:54,486 - Received packet PING data 
+2024-11-11 19:50:54,486 - Sending packet PONG data 
+2024-11-11 19:50:57,273 - Pas d'événement tactile depuis 180.0 secondes
+2024-11-11 19:50:57,273 - Démarrage du diagnostic tactile
+2024-11-11 19:50:57,275 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:50:57,275 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:51:07,272 - Pas d'événement tactile depuis 190.0 secondes
+2024-11-11 19:51:07,272 - Démarrage du diagnostic tactile
+2024-11-11 19:51:07,273 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:51:07,274 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:51:17,272 - Pas d'événement tactile depuis 200.0 secondes
+2024-11-11 19:51:17,273 - Démarrage du diagnostic tactile
+2024-11-11 19:51:17,274 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 640, 'height': 458, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 19:51:17,274 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 19:51:19,495 - Received packet PING data 
+2024-11-11 19:51:19,496 - Sending packet PONG data 
+2024-11-11 20:01:46,935 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 20:01:48,980 - WebSocket connection accepted with {'sid': 'JlT4fTCd8oWCcyIZAACR', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 20:01:48,980 - Engine.IO connection established
+2024-11-11 20:01:48,981 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 20:01:48,984 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"zy5_BYnRA4txltI9AACS"}
+2024-11-11 20:01:48,985 - Namespace /socket_app_patient is connected
+2024-11-11 20:02:06,963 - Pas d'événement tactile depuis 20.0 secondes
+2024-11-11 20:02:13,986 - Received packet PING data 
+2024-11-11 20:02:13,986 - Sending packet PONG data 
+2024-11-11 20:02:16,959 - Pas d'événement tactile depuis 30.0 secondes
+2024-11-11 20:02:26,963 - Pas d'événement tactile depuis 40.0 secondes
+2024-11-11 20:02:26,963 - Démarrage du diagnostic tactile
+2024-11-11 20:02:39,002 - Received packet PING data 
+2024-11-11 20:02:39,002 - Sending packet PONG data 
+2024-11-11 20:02:46,963 - Pas d'événement tactile depuis 60.0 secondes
+2024-11-11 20:02:46,963 - Démarrage du diagnostic tactile
+2024-11-11 20:03:04,005 - Received packet PING data 
+2024-11-11 20:03:04,006 - Sending packet PONG data 
+2024-11-11 20:03:06,959 - Pas d'événement tactile depuis 80.0 secondes
+2024-11-11 20:03:06,959 - Démarrage du diagnostic tactile
+2024-11-11 20:03:26,959 - Pas d'événement tactile depuis 100.0 secondes
+2024-11-11 20:03:26,960 - Démarrage du diagnostic tactile
+2024-11-11 20:03:29,032 - Received packet PING data 
+2024-11-11 20:03:29,033 - Sending packet PONG data 
+2024-11-11 20:03:46,965 - Pas d'événement tactile depuis 120.0 secondes
+2024-11-11 20:03:46,966 - Démarrage du diagnostic tactile
+2024-11-11 20:03:54,029 - Received packet PING data 
+2024-11-11 20:03:54,029 - Sending packet PONG data 
+2024-11-11 20:04:06,959 - Pas d'événement tactile depuis 140.0 secondes
+2024-11-11 20:04:06,959 - Démarrage du diagnostic tactile
+2024-11-11 20:04:19,050 - Received packet PING data 
+2024-11-11 20:04:19,051 - Sending packet PONG data 
+2024-11-11 20:04:26,963 - Pas d'événement tactile depuis 160.0 secondes
+2024-11-11 20:04:26,964 - Démarrage du diagnostic tactile
+2024-11-11 20:04:44,046 - Received packet PING data 
+2024-11-11 20:04:44,047 - Sending packet PONG data 
+2024-11-11 20:04:46,964 - Pas d'événement tactile depuis 180.0 secondes
+2024-11-11 20:04:46,965 - Démarrage du diagnostic tactile
+2024-11-11 20:05:06,964 - Pas d'événement tactile depuis 200.0 secondes
+2024-11-11 20:05:06,964 - Démarrage du diagnostic tactile
+2024-11-11 20:05:09,042 - Received packet PING data 
+2024-11-11 20:05:09,043 - Sending packet PONG data 
+2024-11-11 20:29:57,369 - Attempting WebSocket connection to ws://localhost:5000/socket.io/?transport=websocket&EIO=4
+2024-11-11 20:29:59,760 - WebSocket connection accepted with {'sid': 'h6pyHk2WxQydVL07AACV', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 20:29:59,760 - Engine.IO connection established
+2024-11-11 20:29:59,761 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 20:29:59,765 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"4fFu6R76gf2-33LpAACW"}
+2024-11-11 20:29:59,766 - Namespace /socket_app_patient is connected
+2024-11-11 20:30:17,389 - Pas d'événement tactile depuis 20.0 secondes
+2024-11-11 20:30:24,767 - Received packet PING data 
+2024-11-11 20:30:24,767 - Sending packet PONG data 
+2024-11-11 20:30:27,382 - Pas d'événement tactile depuis 30.0 secondes
+2024-11-11 20:30:37,383 - Pas d'événement tactile depuis 40.0 secondes
+2024-11-11 20:30:37,384 - Démarrage du diagnostic tactile
+2024-11-11 20:30:37,385 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:30:37,386 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:30:47,382 - Pas d'événement tactile depuis 50.0 secondes
+2024-11-11 20:30:47,382 - Démarrage du diagnostic tactile
+2024-11-11 20:30:47,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:30:47,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:30:49,771 - Received packet PING data 
+2024-11-11 20:30:49,772 - Sending packet PONG data 
+2024-11-11 20:30:57,382 - Pas d'événement tactile depuis 60.0 secondes
+2024-11-11 20:30:57,383 - Démarrage du diagnostic tactile
+2024-11-11 20:30:57,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:30:57,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:31:07,383 - Pas d'événement tactile depuis 70.0 secondes
+2024-11-11 20:31:07,383 - Démarrage du diagnostic tactile
+2024-11-11 20:31:07,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:31:07,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:31:14,784 - Received packet PING data 
+2024-11-11 20:31:14,784 - Sending packet PONG data 
+2024-11-11 20:31:17,382 - Pas d'événement tactile depuis 80.0 secondes
+2024-11-11 20:31:17,382 - Démarrage du diagnostic tactile
+2024-11-11 20:31:17,383 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:31:17,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:31:27,383 - Pas d'événement tactile depuis 90.0 secondes
+2024-11-11 20:31:27,384 - Démarrage du diagnostic tactile
+2024-11-11 20:31:27,385 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:31:27,385 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:31:37,383 - Pas d'événement tactile depuis 100.0 secondes
+2024-11-11 20:31:37,384 - Démarrage du diagnostic tactile
+2024-11-11 20:31:37,385 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:31:37,385 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:31:39,958 - Received packet PING data 
+2024-11-11 20:31:39,958 - Sending packet PONG data 
+2024-11-11 20:31:47,383 - Pas d'événement tactile depuis 110.0 secondes
+2024-11-11 20:31:47,383 - Démarrage du diagnostic tactile
+2024-11-11 20:31:47,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:31:47,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:31:57,383 - Pas d'événement tactile depuis 120.0 secondes
+2024-11-11 20:31:57,384 - Démarrage du diagnostic tactile
+2024-11-11 20:31:57,385 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:31:57,385 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:32:04,969 - Received packet PING data 
+2024-11-11 20:32:04,970 - Sending packet PONG data 
+2024-11-11 20:32:07,382 - Pas d'événement tactile depuis 130.0 secondes
+2024-11-11 20:32:07,382 - Démarrage du diagnostic tactile
+2024-11-11 20:32:07,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:32:07,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:32:17,383 - Pas d'événement tactile depuis 140.0 secondes
+2024-11-11 20:32:17,384 - Démarrage du diagnostic tactile
+2024-11-11 20:32:17,385 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:32:17,385 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:32:27,382 - Pas d'événement tactile depuis 150.0 secondes
+2024-11-11 20:32:27,383 - Démarrage du diagnostic tactile
+2024-11-11 20:32:27,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:32:27,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:32:30,055 - Received packet PING data 
+2024-11-11 20:32:30,055 - Sending packet PONG data 
+2024-11-11 20:32:37,383 - Pas d'événement tactile depuis 160.0 secondes
+2024-11-11 20:32:37,383 - Démarrage du diagnostic tactile
+2024-11-11 20:32:37,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:32:37,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:32:47,383 - Pas d'événement tactile depuis 170.0 secondes
+2024-11-11 20:32:47,383 - Démarrage du diagnostic tactile
+2024-11-11 20:32:47,385 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:32:47,385 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:32:55,094 - Received packet PING data 
+2024-11-11 20:32:55,094 - Sending packet PONG data 
+2024-11-11 20:32:57,382 - Pas d'événement tactile depuis 180.0 secondes
+2024-11-11 20:32:57,382 - Démarrage du diagnostic tactile
+2024-11-11 20:32:57,383 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:32:57,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:33:07,383 - Pas d'événement tactile depuis 190.0 secondes
+2024-11-11 20:33:07,383 - Démarrage du diagnostic tactile
+2024-11-11 20:33:07,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:33:07,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:33:17,382 - Pas d'événement tactile depuis 200.0 secondes
+2024-11-11 20:33:17,382 - Démarrage du diagnostic tactile
+2024-11-11 20:33:17,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:33:17,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:33:20,096 - Received packet PING data 
+2024-11-11 20:33:20,097 - Sending packet PONG data 
+2024-11-11 20:33:27,384 - Pas d'événement tactile depuis 210.0 secondes
+2024-11-11 20:33:27,384 - Démarrage du diagnostic tactile
+2024-11-11 20:33:27,385 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:33:27,385 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:33:37,382 - Pas d'événement tactile depuis 220.0 secondes
+2024-11-11 20:33:37,382 - Démarrage du diagnostic tactile
+2024-11-11 20:33:37,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:33:37,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:33:45,218 - Received packet PING data 
+2024-11-11 20:33:45,219 - Sending packet PONG data 
+2024-11-11 20:33:47,385 - Pas d'événement tactile depuis 230.0 secondes
+2024-11-11 20:33:47,385 - Démarrage du diagnostic tactile
+2024-11-11 20:33:47,386 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:33:47,387 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:33:57,383 - Pas d'événement tactile depuis 240.0 secondes
+2024-11-11 20:33:57,383 - Démarrage du diagnostic tactile
+2024-11-11 20:33:57,385 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:33:57,385 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:34:07,383 - Pas d'événement tactile depuis 250.0 secondes
+2024-11-11 20:34:07,383 - Démarrage du diagnostic tactile
+2024-11-11 20:34:07,385 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:34:07,385 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:34:10,277 - Received packet PING data 
+2024-11-11 20:34:10,277 - Sending packet PONG data 
+2024-11-11 20:34:17,383 - Pas d'événement tactile depuis 260.0 secondes
+2024-11-11 20:34:17,383 - Démarrage du diagnostic tactile
+2024-11-11 20:34:17,385 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:34:17,385 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:34:27,383 - Pas d'événement tactile depuis 270.0 secondes
+2024-11-11 20:34:27,383 - Démarrage du diagnostic tactile
+2024-11-11 20:34:27,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:34:27,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:34:35,475 - Received packet PING data 
+2024-11-11 20:34:35,476 - Sending packet PONG data 
+2024-11-11 20:34:37,384 - Pas d'événement tactile depuis 280.0 secondes
+2024-11-11 20:34:37,384 - Démarrage du diagnostic tactile
+2024-11-11 20:34:37,386 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:34:37,386 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:34:47,383 - Pas d'événement tactile depuis 290.0 secondes
+2024-11-11 20:34:47,383 - Démarrage du diagnostic tactile
+2024-11-11 20:34:47,385 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:34:47,385 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:34:57,388 - Pas d'événement tactile depuis 300.0 secondes
+2024-11-11 20:34:57,389 - Démarrage du diagnostic tactile
+2024-11-11 20:34:57,390 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:34:57,390 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:35:00,482 - Received packet PING data 
+2024-11-11 20:35:00,483 - Sending packet PONG data 
+2024-11-11 20:35:07,382 - Pas d'événement tactile depuis 310.0 secondes
+2024-11-11 20:35:07,383 - Démarrage du diagnostic tactile
+2024-11-11 20:35:07,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:35:07,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:35:17,382 - Pas d'événement tactile depuis 320.0 secondes
+2024-11-11 20:35:17,382 - Démarrage du diagnostic tactile
+2024-11-11 20:35:17,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:35:17,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:35:25,498 - Received packet PING data 
+2024-11-11 20:35:25,498 - Sending packet PONG data 
+2024-11-11 20:35:27,383 - Pas d'événement tactile depuis 330.0 secondes
+2024-11-11 20:35:27,383 - Démarrage du diagnostic tactile
+2024-11-11 20:35:27,385 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:35:27,385 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:35:37,382 - Pas d'événement tactile depuis 340.0 secondes
+2024-11-11 20:35:37,382 - Démarrage du diagnostic tactile
+2024-11-11 20:35:37,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:35:37,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:35:47,382 - Pas d'événement tactile depuis 350.0 secondes
+2024-11-11 20:35:47,382 - Démarrage du diagnostic tactile
+2024-11-11 20:35:47,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:35:47,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:35:50,511 - Received packet PING data 
+2024-11-11 20:35:50,513 - Sending packet PONG data 
+2024-11-11 20:35:57,383 - Pas d'événement tactile depuis 360.0 secondes
+2024-11-11 20:35:57,383 - Démarrage du diagnostic tactile
+2024-11-11 20:35:57,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:35:57,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:36:07,387 - Pas d'événement tactile depuis 370.0 secondes
+2024-11-11 20:36:07,388 - Démarrage du diagnostic tactile
+2024-11-11 20:36:07,389 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:36:07,389 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:36:15,524 - Received packet PING data 
+2024-11-11 20:36:15,524 - Sending packet PONG data 
+2024-11-11 20:36:17,383 - Pas d'événement tactile depuis 380.0 secondes
+2024-11-11 20:36:17,383 - Démarrage du diagnostic tactile
+2024-11-11 20:36:17,385 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:36:17,385 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:36:27,383 - Pas d'événement tactile depuis 390.0 secondes
+2024-11-11 20:36:27,383 - Démarrage du diagnostic tactile
+2024-11-11 20:36:27,385 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:36:27,385 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:36:37,383 - Pas d'événement tactile depuis 400.0 secondes
+2024-11-11 20:36:37,383 - Démarrage du diagnostic tactile
+2024-11-11 20:36:37,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:36:37,385 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:36:40,529 - Received packet PING data 
+2024-11-11 20:36:40,529 - Sending packet PONG data 
+2024-11-11 20:36:47,383 - Pas d'événement tactile depuis 410.0 secondes
+2024-11-11 20:36:47,383 - Démarrage du diagnostic tactile
+2024-11-11 20:36:47,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:36:47,384 - Diagnostic tactile réussi - Système tactile opérationnel
+2024-11-11 20:36:57,383 - Pas d'événement tactile depuis 420.0 secondes
+2024-11-11 20:36:57,383 - Démarrage du diagnostic tactile
+2024-11-11 20:36:57,384 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'screenTouch': True, 'events': [{'event': 'touchstart', 'registered': True, 'supported': True}, {'event': 'touchend', 'registered': True, 'supported': True}, {'event': 'touchmove', 'registered': True, 'supported': True}], 'pointerTest': {'touch': False, 'pen': False, 'mouse': False}, 'viewport': {'width': 2560, 'height': 995, 'devicePixelRatio': 1, 'orientation': 'landscape-primary'}}
+2024-11-11 20:36:57,384 - Diagnostic tactile réussi - Système tactile opérationnel

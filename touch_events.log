@@ -1,0 +1,61 @@
+2024-11-11 18:01:01,033 - WebSocket connection accepted with {'sid': '3EY516Gy4rogDx-cAAAN', 'upgrades': [], 'pingTimeout': 20000, 'pingInterval': 25000}
+2024-11-11 18:01:01,034 - Engine.IO connection established
+2024-11-11 18:01:01,034 - Sending packet MESSAGE data 0/socket_app_patient,{}
+2024-11-11 18:01:01,211 - Received packet MESSAGE data 0/socket_app_patient,{"sid":"UpjhajYrVrBIeHqqAAAO"}
+2024-11-11 18:01:01,214 - Namespace /socket_app_patient is connected
+2024-11-11 18:01:23,028 - Received packet PING data 
+2024-11-11 18:01:23,029 - Sending packet PONG data 
+2024-11-11 18:01:48,222 - Received packet PING data 
+2024-11-11 18:01:48,223 - Sending packet PONG data 
+2024-11-11 18:01:55,529 - Pas d'événement tactile depuis 60.0 secondes
+2024-11-11 18:02:13,235 - Received packet PING data 
+2024-11-11 18:02:13,236 - Sending packet PONG data 
+2024-11-11 18:02:38,246 - Received packet PING data 
+2024-11-11 18:02:38,247 - Sending packet PONG data 
+2024-11-11 18:02:55,536 - Pas d'événement tactile depuis 120.0 secondes
+2024-11-11 18:03:03,266 - Received packet PING data 
+2024-11-11 18:03:03,267 - Sending packet PONG data 
+2024-11-11 18:03:28,279 - Received packet PING data 
+2024-11-11 18:03:28,280 - Sending packet PONG data 
+2024-11-11 18:03:53,293 - Received packet PING data 
+2024-11-11 18:03:53,294 - Sending packet PONG data 
+2024-11-11 18:03:55,522 - Pas d'événement tactile depuis 180.0 secondes
+2024-11-11 18:03:55,522 - Démarrage du diagnostic tactile
+2024-11-11 18:03:55,561 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:03:55,562 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:04:18,323 - Received packet PING data 
+2024-11-11 18:04:18,323 - Sending packet PONG data 
+2024-11-11 18:04:43,329 - Received packet PING data 
+2024-11-11 18:04:43,330 - Sending packet PONG data 
+2024-11-11 18:04:55,523 - Pas d'événement tactile depuis 240.0 secondes
+2024-11-11 18:04:55,523 - Démarrage du diagnostic tactile
+2024-11-11 18:04:55,524 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:04:55,525 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:05:08,328 - Received packet PING data 
+2024-11-11 18:05:08,328 - Sending packet PONG data 
+2024-11-11 18:05:33,562 - Received packet PING data 
+2024-11-11 18:05:33,562 - Sending packet PONG data 
+2024-11-11 18:05:55,522 - Pas d'événement tactile depuis 300.0 secondes
+2024-11-11 18:05:55,522 - Démarrage du diagnostic tactile
+2024-11-11 18:05:55,523 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:05:55,524 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:05:58,564 - Received packet PING data 
+2024-11-11 18:05:58,565 - Sending packet PONG data 
+2024-11-11 18:06:23,579 - Received packet PING data 
+2024-11-11 18:06:23,580 - Sending packet PONG data 
+2024-11-11 18:06:48,623 - Received packet PING data 
+2024-11-11 18:06:48,624 - Sending packet PONG data 
+2024-11-11 18:06:55,527 - Pas d'événement tactile depuis 360.0 secondes
+2024-11-11 18:06:55,527 - Démarrage du diagnostic tactile
+2024-11-11 18:06:55,528 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:06:55,529 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:07:13,621 - Received packet PING data 
+2024-11-11 18:07:13,622 - Sending packet PONG data 
+2024-11-11 18:07:38,621 - Received packet PING data 
+2024-11-11 18:07:38,621 - Sending packet PONG data 
+2024-11-11 18:07:55,522 - Pas d'événement tactile depuis 420.0 secondes
+2024-11-11 18:07:55,522 - Démarrage du diagnostic tactile
+2024-11-11 18:07:55,523 - Résultat diagnostic : {'touchPoints': 0, 'touchEnabled': False, 'pointerEnabled': True, 'lastTouchEvent': 'None', 'canCreateEvents': False, 'error': "Failed to construct 'TouchEvent': Failed to read the 'touches' property from 'TouchEventInit': Failed to convert value to 'Touch'."}
+2024-11-11 18:07:55,524 - Diagnostic tactile échoué - Émission signal d'échec
+2024-11-11 18:08:03,621 - Received packet PING data 
+2024-11-11 18:08:03,621 - Sending packet PONG data 
