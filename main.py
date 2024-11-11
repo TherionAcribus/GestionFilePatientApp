@@ -52,63 +52,54 @@ class CustomWebEnginePage(QWebEnginePage):
         
 
 class CustomWebEngineView(QWebEngineView):
-    touch_event_detected = Signal()  # Signal pour les événements tactiles
-    touch_test_failed = Signal()     # Signal pour les échecs de test tactile
+    touch_event_detected = Signal()
+    touch_test_failed = Signal()
     
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setContextMenuPolicy(Qt.NoContextMenu)  # Désactive le menu contextuel
+        self.setContextMenuPolicy(Qt.NoContextMenu)
         
-        # Variables de suivi tactile
         self.last_touch_time = datetime.now()
         self.consecutive_no_touch = 0
-        self.touch_check_interval = 60  # secondes
+        self.touch_check_interval = 60
         
-        # Timer pour la surveillance tactile
         self.touch_timer = QTimer(self)
         self.touch_timer.timeout.connect(self.check_touch_status)
         self.touch_timer.start(self.touch_check_interval * 1000)
         
-        # Compteur d'événements tactiles
         self.touch_count = 0
         self.last_touch_positions = []
-        
+    
     def contextMenuEvent(self, event):
-        # Ignorer l'événement de menu contextuel
         event.ignore()
     
     def event(self, event):
-        # Surveiller les événements tactiles
         if event.type() in [QEvent.TouchBegin, QEvent.TouchUpdate, QEvent.TouchEnd]:
             self.handle_touch_event(event)
         return super().event(event)
     
     def handle_touch_event(self, event):
-        """Gérer et analyser les événements tactiles"""
         self.last_touch_time = datetime.now()
         self.touch_event_detected.emit()
         self.consecutive_no_touch = 0
         self.touch_count += 1
         
-        # Enregistrer la position du touch pour analyse
         if event.type() == QEvent.TouchBegin and hasattr(event, 'touchPoints'):
             pos = event.touchPoints()[0].pos()
             self.last_touch_positions.append((pos.x(), pos.y()))
             if len(self.last_touch_positions) > 10:
                 self.last_touch_positions.pop(0)
         
-        # Log pour diagnostic
         logging.info(f"Événement tactile détecté - Type: {event.type()} - Count: {self.touch_count}")
     
     def check_touch_status(self):
-        """Vérifier l'état des événements tactiles"""
         time_since_last_touch = (datetime.now() - self.last_touch_time).total_seconds()
         
         if time_since_last_touch > self.touch_check_interval:
             self.consecutive_no_touch += 1
             logging.warning(f"Pas d'événement tactile depuis {time_since_last_touch:.1f} secondes")
             
-            if self.consecutive_no_touch >= 3:  # Trois intervalles sans touch
+            if self.consecutive_no_touch >= 3:
                 self.run_touch_diagnostic()
         else:
             self.consecutive_no_touch = 0
@@ -126,7 +117,6 @@ class CustomWebEngineView(QWebEngineView):
                 lastTouchEvent: window.lastTouchEventTime || 'None'
             };
             
-            // Tester la création d'événements tactiles
             try {
                 let testTouch = new TouchEvent('touchstart', {
                     bubbles: true,
@@ -143,18 +133,25 @@ class CustomWebEngineView(QWebEngineView):
                 diagnosticResult.error = e.message;
             }
             
-            return diagnosticResult;
+            return JSON.stringify(diagnosticResult);
         })();
         """
         
-        def handle_diagnostic(result):
-            logging.info(f"Résultat diagnostic : {result}")
-            if not result.get('touchEnabled', False) or not result.get('canCreateEvents', False):
-                self.touch_test_failed.emit()
-                logging.error("Diagnostic tactile échoué - Émission signal d'échec")
+        def callback(result):
+            try:
+                if isinstance(result, str):
+                    import json
+                    result = json.loads(result)
+                
+                logging.info(f"Résultat diagnostic : {result}")
+                if not result.get('touchEnabled', False) or not result.get('canCreateEvents', False):
+                    self.touch_test_failed.emit()
+                    logging.error("Diagnostic tactile échoué - Émission signal d'échec")
+            except Exception as e:
+                logging.error(f"Erreur lors du traitement du diagnostic : {e}")
         
-        self.page().runJavaScript(js_diagnostic, handle_diagnostic)
-
+        # Utilisation correcte de runJavaScript avec PySide6
+        self.page().runJavaScript(js_diagnostic, 0, callback)
 
 class PreferencesDialog(QDialog):
     def __init__(self, parent=None):
